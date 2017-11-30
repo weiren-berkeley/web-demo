@@ -11,6 +11,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "imports-loader": "^0.7.1",
+    "three": "^0.88.0",
+    "three-js": "^79.0.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
