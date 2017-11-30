@@ -5,7 +5,7 @@
 
 <script>
 import * as THREEJS from 'three'
-import * as THREE_ADDONS from 'three-js'
+import * as THREE_ADDONS from 'three-addons'
 const THREE = {...THREEJS, ...THREE_ADDONS}
 // import OrbitControls from "./src/assets/js/OrbitControls.js"
 // require('./src/assets/js/OrbitControls.js')
@@ -29,9 +29,9 @@ var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHe
 scene.add(camera)
 // var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 // var helper = new THREE.CameraHelper(camera)
-// var controls = new THREE.OrbitControls(camera)
+var controls = new THREE.OrbitControls(camera)
  // camera.position.set(0, 0, 100)
-// controls.update()
+controls.update()
 var renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
 document.body.appendChild(renderer.domElement)
@@ -55,7 +55,7 @@ var animate = function () {
   requestAnimationFrame(animate)
   cube.rotation.x += 0.01
   cube.rotation.y += 0.01
-  // controls.update()
+  controls.update()
   renderer.render(scene, camera)
 }
 
