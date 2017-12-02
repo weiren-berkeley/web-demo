@@ -13,65 +13,63 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
-  // mounted: foo()
+  },
+  methods: foo()
 }
-// function foo () {
-//   console.log('a is: ')
-// }
-
-var scene = new THREE.Scene()
-var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHeight, 0.1, 10000)
-scene.add(camera)
-var controls = new THREE.OrbitControls(camera)
-controls.enableZoom = true
-// controls.autoRotate = true
-controls.update()
-camera.position.z = 800
-camera.position.y = 50
-var renderer = new THREE.WebGLRenderer()
-renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
-document.body.appendChild(renderer.domElement)
-// gridHelper
-var gridHelper = new THREE.GridHelper(1000, 30, 0x0000ff, 0x808080)
-gridHelper.position.y = -150
-gridHelper.position.x = -150
-scene.add(gridHelper)
-// objectLoader
-var objectLoader = new THREE.ObjectLoader()
-objectLoader.load('../static/final-robot-w-moves-threejs/final-robot-w-moves.json', function (obj) {
-  scene.add(obj)
-  camera.position.z = 400
-})
-// var manager = new THREE.LoadingManager()
-// var loader = new THREE.OBJLoader(manager)
-// loader.load('../static/arm1.obj', function (object) {
-//   object.position.y = -95
-//   scene.add(object)
-// })
-// var loader = new THREE.ObjectLoader()
-// loader.load('../static/scene2.json', function (geometry, materials) {
-//   var material = THREE.MeshBasicMaterial
-//   var object = new THREE.Mesh(geometry, material)
-//   scene.add(object)
-// })
-// light
-var light = new THREE.AmbientLight(0x000000)
-scene.add(light)
-var hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6)
-hemiLight.color.setHSL(0, 0, 0)
-hemiLight.groundColor.setHSL(0, 0, 0.75)
-hemiLight.position.set(0, 50, 0)
-scene.add(hemiLight)
-var hemiLightHelper = new THREE.HemisphereLightHelper(hemiLight, 10)
-scene.add(hemiLightHelper)
-scene.background = new THREE.Color().setHSL(0.6, 0, 1)
-var animate = function () {
-  requestAnimationFrame(animate)
+function foo () {
+  var scene = new THREE.Scene()
+  var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHeight, 0.1, 10000)
+  scene.add(camera)
+  var controls = new THREE.OrbitControls(camera)
+  controls.enableZoom = true
+  // controls.autoRotate = true
   controls.update()
-  renderer.render(scene, camera)
+  camera.position.z = 800
+  camera.position.y = 50
+  var renderer = new THREE.WebGLRenderer()
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
+  document.body.appendChild(renderer.domElement)
+  // gridHelper
+  var gridHelper = new THREE.GridHelper(1000, 30, 0x0000ff, 0x808080)
+  gridHelper.position.y = -150
+  gridHelper.position.x = -150
+  scene.add(gridHelper)
+  // objectLoader
+  var objectLoader = new THREE.ObjectLoader()
+  objectLoader.load('../static/final-robot-w-moves-threejs/final-robot-w-moves.json', function (obj) {
+    scene.add(obj)
+    camera.position.z = 400
+  })
+  // var manager = new THREE.LoadingManager()
+  // var loader = new THREE.OBJLoader(manager)
+  // loader.load('../static/arm1.obj', function (object) {
+  //   object.position.y = -95
+  //   scene.add(object)
+  // })
+  // var loader = new THREE.ObjectLoader()
+  // loader.load('../static/scene2.json', function (geometry, materials) {
+  //   var material = THREE.MeshBasicMaterial
+  //   var object = new THREE.Mesh(geometry, material)
+  //   scene.add(object)
+  // })
+  // light
+  var light = new THREE.AmbientLight(0x000000)
+  scene.add(light)
+  var hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6)
+  hemiLight.color.setHSL(0, 0, 0)
+  hemiLight.groundColor.setHSL(0, 0, 0.75)
+  hemiLight.position.set(0, 50, 0)
+  scene.add(hemiLight)
+  var hemiLightHelper = new THREE.HemisphereLightHelper(hemiLight, 10)
+  scene.add(hemiLightHelper)
+  scene.background = new THREE.Color().setHSL(0.6, 0, 1)
+  var animate = function () {
+    requestAnimationFrame(animate)
+    controls.update()
+    renderer.render(scene, camera)
+  }
+  animate()
 }
-animate()
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
