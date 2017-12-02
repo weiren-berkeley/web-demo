@@ -11,7 +11,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "imports-loader": "^0.7.1",
     "three": "^0.88.0",
     "three-addons": "^1.1.0",
     "three-js": "^79.0.0",
