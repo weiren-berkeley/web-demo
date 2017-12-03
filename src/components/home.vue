@@ -1,56 +1,48 @@
 <template>
-  <div>
-    test
-  </div>
-<!-- <header> -->
-    <!-- <div class="navbar-list"> -->
-      <!-- <img src="./assets/img/logo.png" /> -->
-      <!-- <a class="navbar-link" href="index.html">Homepage</a>
-      <a class="navbar-link" href="aboutUs.html">About Us</a>
-      <a class="navbar-link" href="contactUs.html">Contact Us</a>
-    </div> -->
-<!-- </header> -->
-<!-- <div class="row">
-  <div class="col">
-  </div>
-  <div class="col6">
-    <div class="teampic">
-      <img src="./static/img/title.png">
+  <div id="home">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col6">
+        <div class="teampic">
+          <img src="../assets/img/title.png">
+        </div>
+      </div>
+      <div class="col">
+      </div>
     </div>
-  </div>
-  <div class="col">
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-  </div>
-  <div class="col6">
-    <div class="teampic">
-      <img src="./static/img/function.png">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col6">
+        <div class="teampic">
+          <img src="../assets/img/function.png">
+        </div>
+      </div>
+      <div class="col">
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-2">
+      <a href="study.html" class="btn btn-primary btn-lg btn-info btn-block" role="button">Study Mode</a>
+      </div>
+      <div class="col-md-2">
+        <a href="home.html" class="btn btn-primary btn-lg btn-success btn-block" role="button">Start Your Robot</a>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <!-- <footer>
+      <div class="navbar-list">
+        <a class="navbar-link" href="index.html">Homepage</a>
+        <a class="navbar-link" href="aboutUs.html">About Us</a>
+        <a class="navbar-link" href="contactUs.html">Contact Us</a>
+      </div>
+    </footer> -->
   </div>
-  <div class="col">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-2">
-  <a href="study.html" class="btn btn-primary btn-lg btn-info btn-block" role="button">Study Mode</a>
-  </div>
-  <div class="col-md-2">
-    <a href="home.html" class="btn btn-primary btn-lg btn-success btn-block" role="button">Start Your Robot</a>
-  </div>
-</div>
-<br />
-<br />
-<br />
-<footer>
-  <div class="navbar-list">
-    <a class="navbar-link" href="index.html">Homepage</a>
-    <a class="navbar-link" href="aboutUs.html">About Us</a>
-    <a class="navbar-link" href="contactUs.html">Contact Us</a>
-  </div>
-</footer> -->
+
 </template>
 
 <script>
@@ -66,6 +58,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+html{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Helvetica, Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+  background: #F2F2F2;
+}
+.headerContainer  {
+  width: 100%;
+  position:fixed;
+  padding:10px 10px 0px 0px;
+  background: #F8CF48;
+}
+.teampic img{
+  height:auto;
+  width: 500px;
+  text-align: center;
+  padding: 40px 0px 0px 0px;
+}
 h1, h2 {
   font-weight: normal;
 }
