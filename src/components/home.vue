@@ -25,10 +25,10 @@
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-2">
-      <a href="study.html" class="btn btn-primary btn-lg btn-info btn-block" role="button">Study Mode</a>
+      <a href="/study" class="btn btn-primary btn-lg btn-info btn-block" role="button">Study</a>
       </div>
       <div class="col-md-2">
-        <a href="home.html" class="btn btn-primary btn-lg btn-success btn-block" role="button">Start Your Robot</a>
+        <a href="start" class="btn btn-primary btn-lg btn-success btn-block" role="button">Start</a>
       </div>
     </div>
     <br />
@@ -58,14 +58,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-html{
-  margin:0;
-  font-family: -apple-system, BlinkMacSystemFont,
-  "Segoe UI", Helvetica, Arial, sans-serif,
-  "Apple Color Emoji", "Segoe UI Emoji",
-  "Segoe UI Symbol";
-  background: #F2F2F2;
-}
 .headerContainer  {
   width: 100%;
   position:fixed;
@@ -78,18 +70,5 @@ html{
   text-align: center;
   padding: 40px 0px 0px 0px;
 }
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>

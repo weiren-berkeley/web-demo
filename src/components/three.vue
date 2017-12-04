@@ -1,5 +1,5 @@
 <template>
-<div id="threeapp" class = "threeapp2">
+<div id="threeapp" class = "threeapp2" style="padding: 100px">
 </div>
 </template>
 
@@ -42,6 +42,7 @@ export default {
       objectLoader.load('../static/scene.json', function (obj) {
         scene.add(obj)
         console.log(obj)
+        // obj.visible = false
         camera.position.z = 400
       })
       // var manager = new THREE.LoadingManager()
@@ -80,7 +81,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+threeapp2 {
+  margin: 10px 10px 10px 10px;
+}
 h1, h2 {
   font-weight: normal;
 
