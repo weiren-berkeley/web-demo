@@ -14,14 +14,14 @@
               <br>
               <br>
               <h2 style="text-align:center; font-size: 25px">Wei Ren</h2>
-              <p>Machenical Engineering Master of Engineering Control System Design</p>
+              <p>Mechanical Engineering Master of Engineering Control System Design</p>
             </div>
             <div class="col-md-3" style="text-align:center;">
               <img class="rounded-circle"  src="../assets/img/yusong.png" width="140" height="140">
               <br>
               <br>
               <h2 style="text-align:center; font-size: 25px">Yu Song</h2>
-              <p>Machenical Engineering Master of Engineering Product Design</p>
+              <p>Mechanical Engineering Master of Engineering Product Design</p>
 
             </div>
             <div class="col-md-3" style="text-align:center;">
@@ -29,7 +29,7 @@
               <br>
               <br>
               <h2 style="text-align:center; font-size: 25px">Yu Wu</h2>
-              <p>Machenical Engineering Master of Engineering Product Design</p>
+              <p>Mechanical Engineering Master of Engineering Product Design</p>
 
             </div>
             <div class="col-md-3" style="text-align:center;">
@@ -37,7 +37,7 @@
               <br>
               <br>
               <h2 style="text-align:center; font-size: 25px">Taozheng Yang</h2>
-              <p>Machenical Engineering Master of Engineering Control System Design</p>
+              <p>Mechanical Engineering Master of Engineering Control System Design</p>
 
             </div>
           </div>

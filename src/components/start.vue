@@ -36,12 +36,13 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Code Area</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="15">{{variable}}{{condition}}{{functions}}</textarea>
+            <textarea class="form-control" rows="15" v-model="program"></textarea>
           </div>
          </div>
          <div class="col-md-4">
            <div class="threescene border border-primary" style="height:260px;"id="threeapp">
            </div>
+
          </div>
        </div>
       </div>
@@ -59,13 +60,16 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       variable: '',
       condition: '',
-      functions: ''
+      functions: '',
+      program: ''
     }
   },
   mounted () {
     this.foo()
   },
   methods: {
+    download () {
+    },
     check () {
       alert('All Passed!')
     },
@@ -75,34 +79,34 @@ export default {
     insert (text) {
       switch (text) {
         case 'Integer':
-          this.variable += 'Integer i = 0;' + '\n'
+          this.program += 'Integer i = 0;' + '\n'
           break
         case 'String':
-          this.variable += 'String text;' + '\n'
+          this.program += 'String text;' + '\n'
           break
         case 'Boolean':
-          this.variable += 'Boolean condition = true;' + '\n'
+          this.program += 'Boolean condition = true;' + '\n'
           break
         case 'Array':
-          this.variable += 'Array t = new Array[];' + '\n'
+          this.program += 'Array t = new Array[];' + '\n'
           break
         case 'For':
-          this.condition += 'for (int i = 0; i < 100; i ++) {\n}' + '\n'
+          this.program += 'for (int i = 0; i < 100; i ++) {\n}' + '\n'
           break
         case 'While':
-          this.condition += 'while (i <= 100) {\n}' + '\n'
+          this.program += 'while (i <= 100) {\n}' + '\n'
           break
         case 'If':
-          this.condition += 'if (i > 100) {\n}' + '\n'
+          this.program += 'if (i > 100) {\n}' + '\n'
           break
         case 'Case':
-          this.condition += 'switch (text) {\n  case 1:\n  break\n  case 2:\n  break\n default: \n}' + '\n'
+          this.program += 'switch (text) {\n  case 1:\n  break\n  case 2:\n  break\n default: \n}' + '\n'
           break
         case 'Function':
-          this.functions += 'function foo (i) {\n}' + '\n'
+          this.program += 'function foo (i) {\n}' + '\n'
           break
         case 'Sort':
-          this.functions += 'function selectSort(arr) {\n var len=arr.length;\n var temp;\n for(var i=0;i<len-1;i++){\n for(var j=i+1;j<len;j++){\n if(arr[j]<arr[i]){\n temp=arr[j];\n arr[j]=arr[i];\n arr[i]=temp;\n }\n }\n i++;\n }\n return arr;\n }\n'
+          this.program += 'function selectSort(arr) {\n var len=arr.length;\n var temp;\n for(var i=0;i<len-1;i++){\n for(var j=i+1;j<len;j++){\n if(arr[j]<arr[i]){\n temp=arr[j];\n arr[j]=arr[i];\n arr[i]=temp;\n }\n }\n i++;\n }\n return arr;\n }\n'
           break
         default:
       }
