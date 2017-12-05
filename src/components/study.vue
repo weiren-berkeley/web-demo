@@ -4,7 +4,7 @@
     <br />
     <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/step1.png" alt="Card image cap">
             <div class="card-body">
@@ -17,7 +17,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA2.png" alt="Card image cap">
             <div class="card-body">
@@ -30,7 +30,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA3.png" alt="Card image cap">
             <div class="card-body">

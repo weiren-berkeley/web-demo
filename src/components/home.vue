@@ -1,5 +1,7 @@
 <template>
   <div id="home">
+    <div class="container">
+
     <div class="row">
       <div class="col">
       </div>
@@ -34,17 +36,9 @@
     <br />
     <br />
     <br />
-    <!-- <footer>
-      <div class="navbar-list">
-        <a class="navbar-link" href="index.html">Homepage</a>
-        <a class="navbar-link" href="aboutUs.html">About Us</a>
-        <a class="navbar-link" href="contactUs.html">Contact Us</a>
-      </div>
-    </footer> -->
   </div>
-
+  </div>
 </template>
-
 <script>
 export default {
   name: 'home',
