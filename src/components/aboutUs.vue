@@ -4,7 +4,46 @@
     <div class="author_containter"></div>
     <div class="blogcontainer">
       <div class="author_name"><a>UC Berkeley</a></div>
+
       <div class="blogcontent">
+        <div class="container">
+          <br>
+          <div class="row">
+            <div class="col-md-3" style="text-align:center;">
+              <img class="rounded-circle"  src="../assets/img/weiren.png" width="140" height="140">
+              <br>
+              <br>
+              <h2 style="text-align:center; font-size: 25px">Wei Ren</h2>
+              <p>Machenical Engineering Master of Engineering Control System Design</p>
+            </div>
+            <div class="col-md-3" style="text-align:center;">
+              <img class="rounded-circle"  src="../assets/img/yusong.png" width="140" height="140">
+              <br>
+              <br>
+              <h2 style="text-align:center; font-size: 25px">Yu Song</h2>
+              <p>Machenical Engineering Master of Engineering Product Design</p>
+
+            </div>
+            <div class="col-md-3" style="text-align:center;">
+              <img class="rounded-circle"  src="../assets/img/yuwu.png" width="140" height="140">
+              <br>
+              <br>
+              <h2 style="text-align:center; font-size: 25px">Yu Wu</h2>
+              <p>Machenical Engineering Master of Engineering Product Design</p>
+
+            </div>
+            <div class="col-md-3" style="text-align:center;">
+              <img class="rounded-circle"  src="../assets/img/taozhengyang.png" width="140" height="140">
+              <br>
+              <br>
+              <h2 style="text-align:center; font-size: 25px">Taozheng Yang</h2>
+              <p>Machenical Engineering Master of Engineering Control System Design</p>
+
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
         <div class="">
           <p>The Open Architecture Robotic Platform is a project
           required the team to design a software platform to
@@ -14,7 +53,8 @@
           functions and UI design. In general, the project embedded
           control, programming, hardware design knowledge.
           </p>
-          <div class="row">
+          <br>
+          <!-- <div class="row">
             <div class="col">
             </div>
             <div class="col-8">
@@ -24,9 +64,8 @@
             </div>
             <div class="col">
             </div>
-          </div>
-          <br/>
-          <br/>
+          </div> -->
+
           <p>
           After multiple rounds of user research, the team decided to target
           control engineer as audience. After talk with several PhD

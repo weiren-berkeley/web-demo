@@ -4,9 +4,11 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 import router from './router'
+import Resource from 'vue-resource'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.use(Resource)
 
 /* eslint-disable no-new */
 new Vue({

@@ -7,6 +7,7 @@ import aboutUs from '@/components/aboutUs'
 import contactUs from '@/components/contactUs'
 import study from '@/components/study'
 import start from '@/components/start'
+import feedback from '@/components/feedback'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/start',
       name: 'start',
       component: start
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: feedback
     }
   ]
 })

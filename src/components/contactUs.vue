@@ -10,9 +10,10 @@
           <p>
             Thank you for visiting us. If you have any advices, please feel free to let us know.
           </p>
-          <p>
-            weiren@berkeley.edu
-          </p>
+          <p>weiren@berkeley.edu</p>
+          <p>yu_song@berkeley.edu</p>
+          <p>yu_wu@berkeley.edu</p>
+          <p>eric_taozheng_yang@berkeley.edu</p>
         </div>
       </div>
     </div>
