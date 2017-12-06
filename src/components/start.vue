@@ -1,12 +1,17 @@
 <template>
   <div id="start">
-    <div class="artical_title"><a>Start Your New Project</a></div>
-    <div class="program">
-      <div class="container">
-       <div class="row">
+      <div class="container" style="padding:2rem;">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <p class="h4 text-center">Start Your New Project</p>
+            <br>
+          </div>
+        </div>
+        <div class="row">
          <div class="col-md-2">
            <div class="list-group">
-             <b-btn class="list-group-item list-group-item-action disabled">Program Tool</b-btn>
+             <b-btn class="list-group-item list-group-item-action disabled">Program Tools</b-btn>
              <b-btn class="list-group-item list-group-item-action list-group-item-success" @click="insert('Integer')">Integer</b-btn>
              <b-btn class="list-group-item list-group-item-action list-group-item-success" @click="insert('String')">String</b-btn>
              <b-btn class="list-group-item list-group-item-action list-group-item-success" @click="insert('Boolean')">Boolean</b-btn>
@@ -36,17 +41,36 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Code Area</label>
-            <textarea class="form-control" rows="15" v-model="program"></textarea>
+            <textarea class="form-control" rows="9" v-model="program"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="text-danger" v-text="msgError"></div>
+              <div class="text-warning" v-text="msgWarning"></div>
+              <br>
+              <button class="btn btn-sm" @click="showFaceFunction()" v-if="showError"> Get help</button>
+            </div>
+            <div class="col-md-4" v-if="showFace">
+                <img src="../assets/img/show.gif" class="img-fluid">
+            </div>
           </div>
          </div>
-         <div class="col-md-4">
-           <div class="threescene border border-primary" style="height:260px;"id="threeapp">
-           </div>
 
+         <div class="col-md-4">
+           <div class="threescene border border-primary" style="height:260px;"id="threeapp"></div>
+           <div v-if="showFace" class="threescene border border-primary" style="height:263px;width:100%;margin:1rem 0 0 0;">
+             <div class="embed-responsive embed-responsive-4by3">
+               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+             </div>
+           </div>
+           <div v-if="showResult" id="threeapp2" class="threescene border border-primary" style="text-align:center;height:263px;width:100%;margin:1rem 0 0 0;">
+              <img src="../assets/img/grid2.png" style="height:100%;"class="img-fluid" />
+           </div>
          </div>
        </div>
       </div>
-    </div>
+      <audio id="bgMusic" src="/static/message.mp3">
+      </audio>
   </div>
 </template>
 <script>
@@ -57,7 +81,11 @@ export default {
   name: 'start',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msgError: '',
+      msgWarning: '',
+      showError: false,
+      showFace: false,
+      showResult: false,
       variable: '',
       condition: '',
       functions: '',
@@ -70,11 +98,20 @@ export default {
   methods: {
     download () {
     },
+    showFaceFunction () {
+      this.showFace = !this.showFace
+      this.showResult = false
+    },
     check () {
-      alert('All Passed!')
+      this.msgError = 'Error: Undefined function or variable a.'
+      this.msgWarning = 'Warning: [WDS] Warnings while compiling.'
+      this.showError = true
+      var audio = document.getElementById('bgMusic')
+      audio.play()
     },
     run () {
-      alert('这种程序你还好意思点run？')
+      this.showResult = true
+      this.showFace = false
     },
     insert (text) {
       switch (text) {
@@ -113,32 +150,41 @@ export default {
     },
     foo () {
       var scene = new THREE.Scene()
-      var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHeight, 0.1, 10000)
+      // var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHeight, 0.1, 10000)
+      var aspect = window.innerWidth / window.innerHeight
+      var frustumSize = 750
+      var camera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 1, 10000)
       scene.add(camera)
       var controls = new THREE.OrbitControls(camera, document.getElementById('threeapp'))
       // controls.autoRotate()
-      // controls.enableZoom = true
-      // controls.zoomSpeed = 1.0
+      controls.enableZoom = true
+      controls.zoomSpeed = 1.0
       // controls.autoRotate = true
       // controls.enableKeys = true
       // controls.keys = { LEFT: 37, UP: 38, RIGHT: 39, BOTTOM: 40 };
       controls.update()
       camera.position.z = 600
       camera.position.y = 520
-      camera.position.x = 120
+      camera.position.x = 620
       var renderer = new THREE.WebGLRenderer()
       renderer.setSize(renderer.getSize().width, 255)
       document.getElementById('threeapp').appendChild(renderer.domElement)
       // document.body.appendChild(renderer.domElement)
       // gridHelper
-      var gridHelper = new THREE.GridHelper(1000, 30, 0x0000ff, 0x808080)
+      var gridHelper = new THREE.GridHelper(500, 4, 0x0000ff, 0x808080)
       gridHelper.position.y = -150
-      gridHelper.position.x = -150
+      gridHelper.position.x = 150
+      gridHelper.position.z = -250
       scene.add(gridHelper)
       // objectLoader
       var objectLoader = new THREE.ObjectLoader()
-      objectLoader.load('../static/scene.json', function (obj) {
+      objectLoader.load('../static/scene2.json', function (obj) {
         scene.add(obj)
+        scene.children[5].position.y = 320
+        scene.children[5].position.z = 100
+        scene.children[5].rotation.x = 400
+        scene.children[5].rotation.y = 300
+        scene.children[5].rotation.z = 100
         // obj.visible = false
         camera.position.z = 400
       })
@@ -155,16 +201,21 @@ export default {
       //   scene.add(object)
       // })
       // light
-      var light = new THREE.AmbientLight(0x000000)
+      var light = new THREE.AmbientLight(0x255f7c)
       scene.add(light)
-      var hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6)
-      hemiLight.color.setHSL(0, 0, 0)
-      hemiLight.groundColor.setHSL(0, 0, 0.75)
-      hemiLight.position.set(0, 50, 0)
-      scene.add(hemiLight)
-      var hemiLightHelper = new THREE.HemisphereLightHelper(hemiLight, 10)
-      scene.add(hemiLightHelper)
-      scene.background = new THREE.Color().setHSL(0.6, 0, 1)
+      var directionalLight = new THREE.DirectionalLight(0x000001, 0.5)
+      scene.add(directionalLight)
+      // var hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6)
+      // hemiLight.color.setHSL(0, 0, 0)
+      // hemiLight.groundColor.setHSL(0, 0, 0.75)
+      // hemiLight.position.set(0, 5, 0)
+      // scene.add(hemiLight)
+      // var hemiLightHelper = new THREE.HemisphereLightHelper(hemiLight, 10)
+      // scene.add(hemiLightHelper)
+      var light2 = new THREE.DirectionalLight(0x111111, 1)
+      light.position.set(1, 1, 1).normalize()
+      scene.add(light2)
+      scene.background = new THREE.Color().setHSL(6, 0, 1)
       var animate = function () {
         requestAnimationFrame(animate)
         controls.update()
@@ -186,12 +237,6 @@ export default {
   text-align: center;
   font-size: 25px;
   font-weight: bold;
-}
-.program {
-  padding-top: 20px;
-  padding-bottom: 40px;
-  text-align: center;
-  /*font-weight: bold;*/
 }
 .author_name {
   padding-right:30px;

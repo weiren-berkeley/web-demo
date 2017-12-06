@@ -9,51 +9,52 @@
   </head>
   <body style="margin: 0">
     <header>
-        <div class="navbar-list">
-					<img src="./static/img/logo.png" />
-          <a class="navbar-link" href="/">Homepage</a>
-          <a class="navbar-link" href="/aboutUs">About Us</a>
-          <a class="navbar-link" href="/contactUs">Contact Us</a>
-          <a class="navbar-link" style="color:red;"href="/feedback">Give Us Feedback</a>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+          <a class="navbar-brand" style="width:15rem;" href="/"><img src="./static/img/logo.png" class="img-fluid" alt="Responsive image"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/aboutUs">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/contactUs">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-danger" href="/feedback">Give Us Feedback</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
 		</header>
     <div id="app"></div>
     <footer>
-			<div class="navbar-list">
-				<a class="navbar-link" href="/">Homepage</a>
-				<a class="navbar-link" href="/aboutUs">About Us</a>
-				<a class="navbar-link" href="/contactUs">Contact Us</a>
-			</div>
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/aboutUs">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contactUs">Contact Us</a>
+        </li>
+      </ul>
+      <br>
 		</footer>
   </body>
   <!-- <script src="../static/js/jquery-3.2.1.min.js"></script>
   <script src="../static/js/popper.js"></script>
   <script src="../static/bootstrap/dist/js/bootstrap.js"></script> -->
   <style>
-  header {
-    width: 100%;
-    position:fixed;
-    padding:10px 10px 10px 0px;
-    background: #F8CF48;
-    z-index: 100;
-  }
-  footer {
-    font-size: 13px;
-    width: 960px;
-    margin: auto;
-    text-align: center;
-    padding:30px 0px;
-  }
-  .navbar-link {
-    margin: 20px;
-  }
-  body{
-    margin:0;
-    font-family: -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
-  }
   </style>
-
 </html>

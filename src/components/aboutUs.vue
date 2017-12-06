@@ -1,14 +1,20 @@
 <template>
   <div id="aboutUs">
-    <div class="artical_title"><a>About Open Architecture Robotics Platform Team</a></div>
-    <div class="author_containter"></div>
-    <div class="blogcontainer">
-      <div class="author_name"><a>UC Berkeley</a></div>
-
-      <div class="blogcontent">
-        <div class="container">
+    <div class="container" style="padding:2rem;">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <p class="h4 text-center">About Open Architecture Robotics Platform Team</p>
           <br>
-          <div class="row">
+          <p class="h6 text-right">UC Berkeley</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10" style="padding: 2rem;border:1px solid #D8D8D8;">
+          <br>
+          <div class="row" style="padding:2rem;">
             <div class="col-md-3" style="text-align:center;">
               <img class="rounded-circle"  src="../assets/img/weiren.png" width="140" height="140">
               <br>
@@ -22,7 +28,6 @@
               <br>
               <h2 style="text-align:center; font-size: 25px">Yu Song</h2>
               <p>Mechanical Engineering Master of Engineering Product Design</p>
-
             </div>
             <div class="col-md-3" style="text-align:center;">
               <img class="rounded-circle"  src="../assets/img/yuwu.png" width="140" height="140">
@@ -30,7 +35,6 @@
               <br>
               <h2 style="text-align:center; font-size: 25px">Yu Wu</h2>
               <p>Mechanical Engineering Master of Engineering Product Design</p>
-
             </div>
             <div class="col-md-3" style="text-align:center;">
               <img class="rounded-circle"  src="../assets/img/taozhengyang.png" width="140" height="140">
@@ -38,54 +42,39 @@
               <br>
               <h2 style="text-align:center; font-size: 25px">Taozheng Yang</h2>
               <p>Mechanical Engineering Master of Engineering Control System Design</p>
-
             </div>
           </div>
-        </div>
-        <br>
-        <br>
-        <div class="">
-          <p>The Open Architecture Robotic Platform is a project
-          required the team to design a software platform to
-          control an associated robotic arm. A robotic arm is made
-          by previous students, and sufficient changes are required
-          to make it fit our project. The software includes control
-          functions and UI design. In general, the project embedded
-          control, programming, hardware design knowledge.
-          </p>
           <br>
-          <!-- <div class="row">
-            <div class="col">
-            </div>
-            <div class="col-8">
-              <div class="teampic">
-                <img src="../assets/img/team.png">
-              </div>
-            </div>
-            <div class="col">
-            </div>
-          </div> -->
-
-          <p>
-          After multiple rounds of user research, the team decided to target
-          control engineer as audience. After talk with several PhD
-          students and professors, it is found that platform they are using
-          now cannot serve all needs cheaply and conveniently.
-          The most popular competitive product is ROS, as known as Robotics
-          Operating System, which is a framework includes tools and libraries
-          to control a robot. While ROS provides more solution in low-level tasks
-          like sensor access, this project want to provide assistance in
-          high-level tasks like arm controller and perception. In conclude,
-          our goal is to provide control engineers a low-cost platform with
-          all necessary commands that they can directly compose control algorithm
-          with them. And they can use the robotic arm to test their theory.
-          Basic control commands should be well defined with LabVIEW. In addition,
-          a GUI should be provided to user to visually see their code and feedback.
-          Moreover, the project is expected to be marketable. To achieve this,
-          the team will keep digging other user needs while prototyping.
-          For example, the team should consider how to link the needs of
-          research to the needs of the industry.
-          </p>
+          <div class="" style="font-size: 1.07rem;text-align: justify; padding:0.1rem;">
+            <p>The Open Architecture Robotic Platform is a project
+            required the team to design a software platform to
+            control an associated robotic arm. A robotic arm is made
+            by previous students, and sufficient changes are required
+            to make it fit our project. The software includes control
+            functions and UI design. In general, the project embedded
+            control, programming, hardware design knowledge.
+            </p>
+            <p>
+            After multiple rounds of user research, the team decided to target
+            control engineer as audience. After talk with several PhD
+            students and professors, it is found that platform they are using
+            now cannot serve all needs cheaply and conveniently.
+            The most popular competitive product is ROS, as known as Robotics
+            Operating System, which is a framework includes tools and libraries
+            to control a robot. While ROS provides more solution in low-level tasks
+            like sensor access, this project want to provide assistance in
+            high-level tasks like arm controller and perception. In conclude,
+            our goal is to provide control engineers a low-cost platform with
+            all necessary commands that they can directly compose control algorithm
+            with them. And they can use the robotic arm to test their theory.
+            Basic control commands should be well defined with LabVIEW. In addition,
+            a GUI should be provided to user to visually see their code and feedback.
+            Moreover, the project is expected to be marketable. To achieve this,
+            the team will keep digging other user needs while prototyping.
+            For example, the team should consider how to link the needs of
+            research to the needs of the industry.
+            </p>
+          </div>
         </div>
       </div>
     </div>

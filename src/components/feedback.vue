@@ -1,7 +1,13 @@
 <template>
   <div id="feedback">
-    <div class="artical_title"><a>Customer Review</a></div>
-    <div class="container">
+    <div class="container" style="padding:2rem;">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <p class="h4 text-center">Customer Review</p>
+          <br>
+        </div>
+      </div>
       <div class="row" v-for="item in commits">
         <div class="col-md-2"></div>
         <div class="col-md-8">
