@@ -9,6 +9,30 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-4">
+          <div class="card" style="width: 20rem;">
+          <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA6.png" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Our Mission</h4>
+              <p class="card-text">
+                A brive introduction of our platform.
+              </p>
+              <a href="https://youtu.be/PUb2WaZ4vU4" class="btn btn-primary">Study</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card" style="width: 20rem;">
+          <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA5.png" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Get Start</h4>
+              <p class="card-text">
+                Some quick examples.
+              </p>
+              <a href="https://youtu.be/KgIXPSYtShE" class="btn btn-primary">Study</a>
+            </div>
+          </div>
+        </div>
         <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/study1.png" alt="Card image cap">
@@ -21,6 +45,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <br>
+      <div class="row">
         <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/study2.png" alt="Card image cap">
@@ -45,9 +72,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <br>
-      <div class="row">
         <div class="col-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/study4.png" alt="Card image cap">
@@ -60,61 +84,12 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
-          <div class="card" style="width: 20rem;">
-          <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA5.png" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Get Start</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title
-                and make up the bulk of the card's content.
-              </p>
-              <a href="/" class="btn btn-primary">Study</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card" style="width: 20rem;">
-          <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA6.png" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Get Start</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title
-                and make up the bulk of the card's content.
-              </p>
-              <a href="/" class="btn btn-primary">Study</a>
-            </div>
-          </div>
-        </div>
+
+
       </div>
       <br>
       <div class="row">
-        <div class="col-4">
-          <div class="card" style="width: 20rem;">
-          <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepB2.png" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Get Start</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title
-                and make up the bulk of the card's content.
-              </p>
-              <a href="/" class="btn btn-primary">Study</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card" style="width: 20rem;">
-          <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepB3.png" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Get Start</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title
-                and make up the bulk of the card's content.
-              </p>
-              <a href="/" class="btn btn-primary">Study</a>
-            </div>
-          </div>
-        </div>
+
         <div class="col-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/lego.png" alt="Card image cap">
@@ -128,9 +103,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <br>
-      <div class="row">
         <div class="col-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/bd.png" alt="Card image cap">
@@ -157,6 +129,10 @@
             </div>
           </div>
         </div>
+      </div>
+      <br>
+      <div class="row">
+
         <div class="col-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/arm.png" alt="Card image cap">

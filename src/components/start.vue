@@ -60,7 +60,7 @@
            <div class="threescene border border-primary" style="height:260px;"id="threeapp"></div>
            <div v-if="showFace" class="threescene border border-primary" style="height:263px;width:100%;margin:1rem 0 0 0;">
              <div class="embed-responsive embed-responsive-4by3">
-               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/KgIXPSYtShE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
              </div>
            </div>
            <div v-if="showResult" id="threeapp2" class="threescene border border-primary" style="text-align:center;height:263px;width:100%;margin:1rem 0 0 0;">
@@ -69,8 +69,8 @@
          </div>
        </div>
       </div>
-      <audio id="bgMusic" src="/static/message.mp3">
-      </audio>
+      <!-- <audio id="bgMusic" src="/static/message.mp3">
+      </audio> -->
   </div>
 </template>
 <script>
@@ -106,8 +106,8 @@ export default {
       this.msgError = 'Error: Undefined function or variable a.'
       this.msgWarning = 'Warning: [WDS] Warnings while compiling.'
       this.showError = true
-      var audio = document.getElementById('bgMusic')
-      audio.play()
+      // var audio = document.getElementById('bgMusic')
+      // audio.play()
     },
     run () {
       this.showResult = true
