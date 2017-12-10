@@ -57,7 +57,7 @@
          </div>
 
          <div class="col-md-4">
-           <div class="threescene border border-primary" style="height:260px;"id="threeapp"></div>
+           <div class="threescene border border-primary" style="height:260px;" id="threeapp"></div>
            <div v-if="showFace" class="threescene border border-primary" style="height:263px;width:100%;margin:1rem 0 0 0;">
              <div class="embed-responsive embed-responsive-4by3">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/KgIXPSYtShE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
@@ -190,8 +190,9 @@ export default {
       })
       // var manager = new THREE.LoadingManager()
       // var loader = new THREE.OBJLoader(manager)
-      // loader.load('../static/arm1.obj', function (object) {
+      // loader.load('../static/assembly.obj', function (object) {
       //   object.position.y = -95
+      //   console.log(object)
       //   scene.add(object)
       // })
       // var loader = new THREE.ObjectLoader()

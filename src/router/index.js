@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import three from '@/components/three'
+import car from '@/components/car'
 import home from '@/components/home'
 import aboutUs from '@/components/aboutUs'
 import contactUs from '@/components/contactUs'
 import study from '@/components/study'
 import start from '@/components/start'
 import feedback from '@/components/feedback'
+import arm from '@/components/arm'
 
 Vue.use(Router)
 
@@ -25,9 +26,9 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/three',
-      name: 'three',
-      component: three
+      path: '/car',
+      name: 'car',
+      component: car
     },
     {
       path: '/aboutUs',
@@ -53,6 +54,11 @@ export default new Router({
       path: '/feedback',
       name: 'feedback',
       component: feedback
+    },
+    {
+      path: '/arm',
+      name: 'arm',
+      component: arm
     }
   ]
 })
