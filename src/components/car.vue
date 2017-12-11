@@ -1,10 +1,8 @@
 <template>
 <div id="car">
   <div class="container">
-
-      <div class="h3" style="text-align:center; margin-top:80px; margin-bottom:20px;]"> Model Predictive Control in Autonomous Driving
+      <div class="h3" style="text-align:center; margin-top:80px; margin-bottom:20px;]">Model Predictive Control in Autonomous Driving
       </div>
-
     <div class="row">
       <div class="col-md-6">
         <div class="threescene border border-primary" v-bind:style="{ width: width+'px', height: height+ 'px' }" id="threetruck"></div>
@@ -267,7 +265,7 @@ export default {
       cylinder.position.z = -1650
       cylinder.position.y = 100
       scene.add(cylinder)
-      var controls = new THREE.OrbitControls(camera, document.getElementById('threetruck'))
+      var controls = new THREE.OrbitControls(camera, document.getElementById('threetruck2'))
       controls.enableZoom = true
       controls.zoomSpeed = 1.0
       controls.update()
