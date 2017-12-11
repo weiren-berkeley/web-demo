@@ -173,9 +173,12 @@ export default {
       camera.position.z = 0
       camera.position.y = 800
       camera.position.x = 800
-      var renderer = new THREE.WebGLRenderer()
+      var renderer = new THREE.WebGLRenderer({antialias: true})
+      renderer.setPixelRatio(window.devicePixelRatio)
       renderer.setSize(this.width - 2, this.height - 2)
       document.getElementById('threetruck').appendChild(renderer.domElement)
+      scene.background = new THREE.Color().setHSL(1, 1, 1)
+      renderer.render(scene, camera)
       var gridHelper = new THREE.GridHelper(1000, 10, 0x0000ff, 0x808080)
       gridHelper.scale.set(1.3, 1, 11)
       gridHelper.position.y = 0
@@ -204,7 +207,6 @@ export default {
       controls.update()
       var light = new THREE.AmbientLight(0x255f7c)
       scene.add(light)
-      scene.background = new THREE.Color().setHSL(1, 1, 1)
       var i = 0
       var animate = () => {
         // var i = 0
@@ -245,9 +247,12 @@ export default {
       camera.position.z = 0
       camera.position.y = 800
       camera.position.x = 800
-      var renderer = new THREE.WebGLRenderer()
+      var renderer = new THREE.WebGLRenderer({antialias: true})
+      renderer.setPixelRatio(window.devicePixelRatio)
       renderer.setSize(this.width - 2, this.height - 2)
       document.getElementById('threetruck2').appendChild(renderer.domElement)
+      scene.background = new THREE.Color().setHSL(1, 1, 1)
+      renderer.render(scene, camera)
       var gridHelper = new THREE.GridHelper(1000, 10, 0x0000ff, 0x808080)
       gridHelper.scale.set(1.3, 1, 11)
       gridHelper.position.y = 0

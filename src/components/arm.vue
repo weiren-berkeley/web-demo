@@ -89,27 +89,32 @@ export default {
       var scene = new THREE.Scene()
       // var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHeight, 0.1, 10000)
       var aspect = this.width / this.height
-      var frustumSize = 500
+      var frustumSize = 450
       var camera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 1, 10000)
       scene.add(camera)
+      // camera.lookAt(new THREE.Vector3(100,100,100))
       var controls = new THREE.OrbitControls(camera, document.getElementById('roboticArm'))
       // controls.autoRotate()
       controls.enableZoom = true
       controls.zoomSpeed = 1.0
       // controls.autoRotate = true
       // controls.enableKeys = true
+      controls.enablePan = true
       // controls.keys = { LEFT: 37, UP: 38, RIGHT: 39, BOTTOM: 40 };
       controls.update()
       camera.position.z = 600
       camera.position.y = 520
       camera.position.x = 620
-      var renderer = new THREE.WebGLRenderer()
+      var renderer = new THREE.WebGLRenderer({antialias: true})
+      renderer.setPixelRatio(window.devicePixelRatio)
       renderer.setSize(this.width - 2, this.height - 2)
       document.getElementById('roboticArm').appendChild(renderer.domElement)
+      scene.background = new THREE.Color().setHSL(6, 0, 1)
+      renderer.render(scene, camera)
       // document.body.appendChild(renderer.domElement)
       // gridHelper
       var gridHelper = new THREE.GridHelper(400, 8, 0x0000ff, 0x808080)
-      // gridHelper.position.y = -150
+      gridHelper.position.y = -100
       // gridHelper.position.x = 150
       // gridHelper.position.z = -250
       scene.add(gridHelper)
@@ -117,7 +122,8 @@ export default {
       var objectLoader = new THREE.ObjectLoader()
       objectLoader.load('../static/assembly.json', (obj) => {
         scene.add(obj)
-        // console.log(scene)
+        console.log(scene)
+        scene.children[2].position.y = -100
         this.msg = ''
         animate()
       })
@@ -149,7 +155,6 @@ export default {
       // var light2 = new THREE.DirectionalLight(0x111111, 1)
       // light.position.set(1, 1, 1).normalize()
       // scene.add(light2)
-      scene.background = new THREE.Color().setHSL(6, 0, 1)
       var animate = () => {
         requestAnimationFrame(animate)
         controls.update()
