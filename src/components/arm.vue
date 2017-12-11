@@ -23,14 +23,19 @@
         <br>
         Angle3:
         {{angle3}}
+        <br><br><br>
+        <input type="range" min="-1" max="0.75" step="0.01" v-model="angle4"/>
         <br>
-        <input type="range" min="50.1415926" max="300.1415926" step="0.01" v-model="bias"/>
+        Angle4:
+        {{angle4}}
+        <br>
+        <!-- <input type="range" min="50.1415926" max="300.1415926" step="0.01" v-model="bias"/>
         <br>
         {{bias}}
         <br>
         <input type="range" min="-50.1415926" max="75.1415926" step="0.01" v-model="bias2"/>
         <br>
-        {{bias2}}
+        {{bias2}} -->
       </div>
 
     </div>
@@ -56,6 +61,7 @@ export default {
       angle1: 0,
       angle2: 0,
       angle3: 0,
+      angle4: 0,
       bias: 0,
       bias2: 0,
       index: ''
@@ -144,6 +150,9 @@ export default {
         // scene.children[2].children[0].children[0].children[1].children[1].children[0].position.x = -Math.sin(this.angle3) * this.bias2
         scene.children[2].children[0].children[0].children[1].children[1].children[0].position.y = (1 - Math.cos(this.angle3)) * 200
         scene.children[2].children[0].children[0].children[1].children[1].children[0].position.z = -Math.sin(this.angle3) * 200
+        scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].rotation.x = this.angle4
+        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].position.y = (1 - Math.cos(this.angle4)) * 200
+        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].position.z = -Math.sin(this.angle4) * 200
 
         renderer.render(scene, camera)
       }

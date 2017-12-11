@@ -207,8 +207,8 @@ export default {
         i += 1
         this.index = Math.floor(i / 4)
         requestAnimationFrame(animate)
-        if (this.index === 50) {
-          return
+        if (this.index === 200) {
+          i = 0
         }
         // scene.children[4].children[2].rotation.z = this.theta[this.msg]
         // scene.children[4].children[2].position.z = -this.positionX[this.msg] * 100 + this.theta[this.msg] * 100
@@ -250,6 +250,7 @@ export default {
       gridHelper.position.x = 0
       gridHelper.position.z = 0
       scene.add(gridHelper)
+      // console.log(this.positionXA)
       // objectLoader
       var objectLoader = new THREE.ObjectLoader()
       objectLoader.load('../static/delivery-truck.json', (obj) => {
@@ -278,8 +279,8 @@ export default {
         i += 1
         this.index = Math.floor(i / 4)
         requestAnimationFrame(animate)
-        if (this.index === 50) {
-          return
+        if (this.index === 200) {
+          i = 0
         }
         // scene.children[4].children[2].rotation.z = this.theta[this.msg]
         // scene.children[4].children[2].position.z = -this.positionX[this.msg] * 100 + this.theta[this.msg] * 100
