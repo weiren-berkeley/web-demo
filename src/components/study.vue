@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA6.png" alt="Card image cap">
             <div class="card-body">
@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA5.png" alt="Card image cap">
             <div class="card-body">
@@ -72,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/study4.png" alt="Card image cap">
             <div class="card-body">
@@ -90,7 +90,7 @@
       <br>
       <div class="row">
 
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/lego.png" alt="Card image cap">
             <div class="card-body">
@@ -103,7 +103,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/bd.png" alt="Card image cap">
             <div class="card-body">
@@ -116,7 +116,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/ros.png" alt="Card image cap">
             <div class="card-body">
@@ -133,7 +133,7 @@
       <br>
       <div class="row">
 
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="card" style="width: 20rem;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/arm.png" alt="Card image cap">
             <div class="card-body">

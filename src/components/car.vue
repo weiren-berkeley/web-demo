@@ -1,7 +1,10 @@
 <template>
 <div id="car">
   <div class="container">
-      <div class="h3" style="text-align:center; margin-top:80px; margin-bottom:20px;]">Model Predictive Control in Autonomous Driving
+      <div class="h3" style="text-align:center; margin-top:80px; margin-bottom:20px;]">Model Predictive Control in Autonomous Driving (231A)
+      </div>
+      <div class="h5" style="text-align:center;">
+        {{msg}}
       </div>
     <div class="row">
       <div class="col-md-6">
@@ -146,7 +149,7 @@ export default {
         0.019310, 0.034442, 0.034141, 0.021405, 0.002071, -0.018052, -0.034426, -0.044274,
         -0.044950, -0.034210, -0.014390, 0.009267, 0.031472, 0.046937, 0.050372, 0.036490,
         -0.000000, -0.000000],
-      msg: 'Welcome to Your Vue.js App',
+      msg: '3D model is loading...',
       render: '',
       uuid: '',
       obj: '',
@@ -185,6 +188,7 @@ export default {
         this.uuid = obj.uuid
         scene.add(obj)
         console.log(obj)
+        this.msg = ''
         animate()
       })
       console.log(Math.sin(3.1415926525))

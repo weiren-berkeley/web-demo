@@ -1,17 +1,25 @@
 <template>
 <div id="arm">
   <div class="container">
-      <div class="h3" style="text-align:center; margin-top:30px; margin-bottom:20px;"> Robotic Arm
+      <div class="h3" style="text-align:center; margin-top:30px; margin-bottom:20px;"> Robotic Arm (296MA)
       </div>
-    <div class="row">
+      <div class="h5" style="text-align:center;">
+        {{msg}}
+      </div>
 
+    <div class="row">
       <div class="col-md-9">
+        <div id="info">Drag to Control Camera</div>
         <div class="threescene border border-primary" v-bind:style="{ width: width+'px', height: height+ 'px' }" id="roboticArm"></div>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2" style="text-align:center;">
+        <div class="h6" style="text-align:center;">
+          Drag to Control Robotic Arm
+        </div>
+        <br>
         <input type="range" min="-3.1415926" max="3.1415926" step="0.01" v-model="angle1"/>
         <br>
-        Angle:
+        Angle1:
         {{angle1}}
         <br><br><br>
         <input type="range" min="-1" max="1" step="0.01" v-model="angle2"/>
@@ -23,24 +31,27 @@
         <br>
         Angle3:
         {{angle3}}
-        <br><br><br>
+        <br><br>
+
+        <!-- <br><br><br>
         <input type="range" min="-1" max="0.75" step="0.01" v-model="angle4"/>
-        <br>
-        Angle4:
+        <br> -->
+        <!-- Angle4:
         {{angle4}}
         <br>
-        <!-- <input type="range" min="50.1415926" max="300.1415926" step="0.01" v-model="bias"/>
+        matrix: {{matrix}}
+        <input type="range" min="100.1415926" max="300.1415926" step="0.01" v-model="bias"/>
         <br>
         {{bias}}
         <br>
-        <input type="range" min="-50.1415926" max="75.1415926" step="0.01" v-model="bias2"/>
+        <input type="range" min="200.1415926" max="300.1415926" step="0.01" v-model="bias2"/>
         <br>
         {{bias2}} -->
       </div>
 
     </div>
   </div>
-  <br><br><br>
+  <br>
 </div>
 </template>
 
@@ -54,7 +65,7 @@ export default {
     return {
       height: 550,
       width: 800,
-      msg: 'Welcome to Your Vue.js App',
+      msg: '3D model is loading...',
       render: '',
       uuid: '',
       obj: '',
@@ -62,8 +73,9 @@ export default {
       angle2: 0,
       angle3: 0,
       angle4: 0,
-      bias: 0,
-      bias2: 0,
+      bias: 200,
+      bias2: 200,
+      matrix: '',
       index: ''
     }
   },
@@ -77,7 +89,7 @@ export default {
       var scene = new THREE.Scene()
       // var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHeight, 0.1, 10000)
       var aspect = this.width / this.height
-      var frustumSize = 550
+      var frustumSize = 500
       var camera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 1, 10000)
       scene.add(camera)
       var controls = new THREE.OrbitControls(camera, document.getElementById('roboticArm'))
@@ -103,9 +115,10 @@ export default {
       scene.add(gridHelper)
       // objectLoader
       var objectLoader = new THREE.ObjectLoader()
-      objectLoader.load('../static/assembly.json', function (obj) {
+      objectLoader.load('../static/assembly.json', (obj) => {
         scene.add(obj)
-        console.log(scene)
+        // console.log(scene)
+        this.msg = ''
         animate()
       })
       // var manager = new THREE.LoadingManager()
@@ -141,6 +154,8 @@ export default {
         requestAnimationFrame(animate)
         controls.update()
         scene.children[2].children[0].children[0].children[1].rotation.y = this.angle1
+        // scene.children[2].children[0].children[0].children[1].matrixWorld.makeRotationY(this.angle1)
+        this.matrix = scene.children[2].children[0].children[0].children[1].matrixWorld
         // scene.children[5].children[0].children[0].visible = false
         scene.children[2].children[0].children[0].children[1].children[1].rotation.x = this.angle2
         scene.children[2].children[0].children[0].children[1].children[1].position.y = (1 - Math.cos(this.angle2)) * 73.2715926
@@ -150,9 +165,13 @@ export default {
         // scene.children[2].children[0].children[0].children[1].children[1].children[0].position.x = -Math.sin(this.angle3) * this.bias2
         scene.children[2].children[0].children[0].children[1].children[1].children[0].position.y = (1 - Math.cos(this.angle3)) * 200
         scene.children[2].children[0].children[0].children[1].children[1].children[0].position.z = -Math.sin(this.angle3) * 200
+        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].matrixWorld = scene.children[2].children[0].children[0].children[1].children[1].children[0].matrix
         scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].rotation.x = this.angle4
-        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].position.y = (1 - Math.cos(this.angle4)) * 200
-        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].position.z = -Math.sin(this.angle4) * 200
+        this.matrix = scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].matrixWorld
+
+        // this.matrix = scene.children[2].children[0].children[0].children[1].children[1].children[0].matrix
+        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].position.y = (1 - Math.cos(this.angle4)) * this.bias
+        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].position.z = -Math.sin(this.angle4) * this.bias2
 
         renderer.render(scene, camera)
       }
@@ -162,5 +181,12 @@ export default {
 </script>
 
 <style scoped>
-
+#info {
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 100;
+	display:block;
+}
 </style>
