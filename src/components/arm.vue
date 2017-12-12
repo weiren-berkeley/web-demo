@@ -17,22 +17,28 @@
           Drag to Control Robotic Arm
         </div>
         <br>
-        <input type="range" min="-3.1415926" max="3.1415926" step="0.01" v-model="angle1"/>
+        <input type="range" min="0" max="6.2831852" step="0.01" v-model="angle1"/>
         <br>
-        Angle1:
+        Angle1:<br>
         {{angle1}}
         <br><br><br>
         <input type="range" min="-1" max="1" step="0.01" v-model="angle2"/>
         <br>
-        Angle2:
+        Angle2:<br>
         {{angle2}}
         <br><br><br>
-        <input type="range" min="-1" max="0.75" step="0.01" v-model="angle3"/>
+        <input type="range" min="-1.25" max="0.75" step="0.01" v-model="angle3"/>
         <br>
-        Angle3:
+        Angle3:<br>
         {{angle3}}
-        <br><br>
-
+        <br><br><br>
+        <div class="col-auto">
+          <label class="custom-control custom-checkbox mb-2 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" v-model="checkbox">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Auto Run</span>
+          </label>
+        </div>
         <!-- <br><br><br>
         <input type="range" min="-1" max="0.75" step="0.01" v-model="angle4"/>
         <br> -->
@@ -69,10 +75,13 @@ export default {
       render: '',
       uuid: '',
       obj: '',
+      checkbox: true,
       angle1: 0,
       angle2: 0,
       angle3: 0,
       angle4: 0,
+      range2p1: 0,
+      range2p2: 0,
       bias: 200,
       bias2: 200,
       matrix: '',
@@ -155,29 +164,46 @@ export default {
       // var light2 = new THREE.DirectionalLight(0x111111, 1)
       // light.position.set(1, 1, 1).normalize()
       // scene.add(light2)
+      // var plane = new THREE.Plane( new THREE.Vector3( 0, 0, 0 ), 3 );
+      // plane.receiveShadow = true;
+      // var helper = new THREE.PlaneHelper( plane, 500, 0x7777ff );
+      // var groundGeometry = new THREE.PlaneGeometry(100, 200, 20, 20);
+      //   var groundMaterial = new THREE.MeshBasicMaterial({color: 0xfffff0});
+      //   var ground = new THREE.Mesh(groundGeometry, groundMaterial);
+      //   ground.receiveShadow = true;
+      //   ground.rotation.x = -0.5 * Math.PI;
+      //   scene.add(ground);
+      // scene.add( helper );
       var animate = () => {
         requestAnimationFrame(animate)
         controls.update()
+        if (this.checkbox === true) {
+          this.angle1 = this.angle1 % 100
+          this.angle1 += 0.007
+          this.angle1 = this.angle1 % (2 * 3.1415926)
+          this.angle2 = this.angle2 % 100
+          this.range2p1 += 0.02
+          this.range2p1 = this.range2p1 % (2 * 3.1415926)
+          this.angle2 = Math.sin(this.range2p1)
+          this.angle3 = this.angle3 % 100
+          this.range2p2 -= 0.013
+          this.range2p2 = this.range2p2 % (2 * 3.1415926)
+          this.angle3 = Math.sin(this.range2p2) - 0.25
+        } else {
+          this.range2p1 = Math.asin(this.angle2 % 100) % 100
+          this.range2p2 = Math.asin((this.angle3 % 100 + 0.25) % 100) % 100
+        }
+
         scene.children[2].children[0].children[0].children[1].rotation.y = this.angle1
-        // scene.children[2].children[0].children[0].children[1].matrixWorld.makeRotationY(this.angle1)
         this.matrix = scene.children[2].children[0].children[0].children[1].matrixWorld
-        // scene.children[5].children[0].children[0].visible = false
         scene.children[2].children[0].children[0].children[1].children[1].rotation.x = this.angle2
         scene.children[2].children[0].children[0].children[1].children[1].position.y = (1 - Math.cos(this.angle2)) * 73.2715926
         scene.children[2].children[0].children[0].children[1].children[1].position.z = -Math.sin(this.angle2) * 73.2715926
-
         scene.children[2].children[0].children[0].children[1].children[1].children[0].rotation.x = this.angle3
-        // scene.children[2].children[0].children[0].children[1].children[1].children[0].position.x = -Math.sin(this.angle3) * this.bias2
         scene.children[2].children[0].children[0].children[1].children[1].children[0].position.y = (1 - Math.cos(this.angle3)) * 200
         scene.children[2].children[0].children[0].children[1].children[1].children[0].position.z = -Math.sin(this.angle3) * 200
-        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].matrixWorld = scene.children[2].children[0].children[0].children[1].children[1].children[0].matrix
         scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].rotation.x = this.angle4
         this.matrix = scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].matrixWorld
-
-        // this.matrix = scene.children[2].children[0].children[0].children[1].children[1].children[0].matrix
-        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].position.y = (1 - Math.cos(this.angle4)) * this.bias
-        // scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].position.z = -Math.sin(this.angle4) * this.bias2
-
         renderer.render(scene, camera)
       }
     }
