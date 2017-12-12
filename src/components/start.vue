@@ -57,14 +57,14 @@
          </div>
 
          <div class="col-md-4">
-           <div class="threescene border border-primary" style="height:260px;" id="threeapp"></div>
+           <div class="threescene border border-primary" v-bind:style="{ width: width+'px', height: height+ 'px' }" id="threeapp"></div>
            <div v-if="showFace" class="threescene border border-primary" style="height:263px;width:100%;margin:1rem 0 0 0;">
              <div class="embed-responsive embed-responsive-4by3">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/KgIXPSYtShE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
              </div>
            </div>
            <div v-if="showResult" id="threeapp2" class="threescene border border-primary" style="text-align:center;height:263px;width:100%;margin:1rem 0 0 0;">
-              <img src="../assets/img/grid2.png" style="height:100%;"class="img-fluid" />
+              <img src="../assets/img/grid2.png" v-bind:style="{ width: width+'px'}" style="height:100%;"class="img-fluid" />
            </div>
          </div>
        </div>
@@ -89,7 +89,24 @@ export default {
       variable: '',
       condition: '',
       functions: '',
-      program: ''
+      program: '',
+      height: 260,
+      width: 337,
+      msg: '3D model is loading...',
+      render: '',
+      uuid: '',
+      obj: '',
+      checkbox: false,
+      angle1: 0,
+      angle2: 0,
+      angle3: 0,
+      angle4: 0,
+      range2p1: 0,
+      range2p2: 0,
+      bias: 200,
+      bias2: 200,
+      matrix: '',
+      index: ''
     }
   },
   mounted () {
@@ -112,6 +129,7 @@ export default {
     run () {
       this.showResult = true
       this.showFace = false
+      this.checkbox = !this.checkbox
     },
     insert (text) {
       switch (text) {
@@ -151,42 +169,44 @@ export default {
     foo () {
       var scene = new THREE.Scene()
       // var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHeight, 0.1, 10000)
-      var aspect = window.innerWidth / window.innerHeight
-      var frustumSize = 750
+      var aspect = this.width / this.height
+      var frustumSize = 450
       var camera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 1, 10000)
       scene.add(camera)
+      // camera.lookAt(new THREE.Vector3(100,100,100))
       var controls = new THREE.OrbitControls(camera, document.getElementById('threeapp'))
       // controls.autoRotate()
       controls.enableZoom = true
       controls.zoomSpeed = 1.0
       // controls.autoRotate = true
       // controls.enableKeys = true
+      controls.enablePan = true
       // controls.keys = { LEFT: 37, UP: 38, RIGHT: 39, BOTTOM: 40 };
       controls.update()
       camera.position.z = 600
       camera.position.y = 520
       camera.position.x = 620
-      var renderer = new THREE.WebGLRenderer()
-      renderer.setSize(renderer.getSize().width, 255)
+      var renderer = new THREE.WebGLRenderer({antialias: true})
+      renderer.setPixelRatio(window.devicePixelRatio)
+      renderer.setSize(this.width - 2, this.height - 2)
       document.getElementById('threeapp').appendChild(renderer.domElement)
+      scene.background = new THREE.Color().setHSL(6, 0, 1)
+      renderer.render(scene, camera)
       // document.body.appendChild(renderer.domElement)
       // gridHelper
-      var gridHelper = new THREE.GridHelper(500, 4, 0x0000ff, 0x808080)
-      gridHelper.position.y = -150
-      gridHelper.position.x = 150
-      gridHelper.position.z = -250
+      var gridHelper = new THREE.GridHelper(400, 8, 0x0000ff, 0x808080)
+      gridHelper.position.y = -100
+      // gridHelper.position.x = 150
+      // gridHelper.position.z = -250
       scene.add(gridHelper)
       // objectLoader
       var objectLoader = new THREE.ObjectLoader()
-      objectLoader.load('../static/scene2.json', function (obj) {
+      objectLoader.load('../static/assembly.json', (obj) => {
         scene.add(obj)
-        scene.children[5].position.y = 320
-        scene.children[5].position.z = 100
-        scene.children[5].rotation.x = 400
-        scene.children[5].rotation.y = 300
-        scene.children[5].rotation.z = 100
-        // obj.visible = false
-        camera.position.z = 400
+        console.log(scene)
+        scene.children[2].position.y = -100
+        this.msg = ''
+        animate()
       })
       // var manager = new THREE.LoadingManager()
       // var loader = new THREE.OBJLoader(manager)
@@ -202,10 +222,10 @@ export default {
       //   scene.add(object)
       // })
       // light
-      var light = new THREE.AmbientLight(0x255f7c)
-      scene.add(light)
-      var directionalLight = new THREE.DirectionalLight(0x000001, 0.5)
-      scene.add(directionalLight)
+      // var light = new THREE.AmbientLight(0xff0000)
+      // scene.add(light)
+      // var directionalLight = new THREE.DirectionalLight(0x000001, 0.5)
+      // scene.add(directionalLight)
       // var hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6)
       // hemiLight.color.setHSL(0, 0, 0)
       // hemiLight.groundColor.setHSL(0, 0, 0.75)
@@ -213,16 +233,51 @@ export default {
       // scene.add(hemiLight)
       // var hemiLightHelper = new THREE.HemisphereLightHelper(hemiLight, 10)
       // scene.add(hemiLightHelper)
-      var light2 = new THREE.DirectionalLight(0x111111, 1)
-      light.position.set(1, 1, 1).normalize()
-      scene.add(light2)
-      scene.background = new THREE.Color().setHSL(6, 0, 1)
-      var animate = function () {
+      // var light2 = new THREE.DirectionalLight(0x111111, 1)
+      // light.position.set(1, 1, 1).normalize()
+      // scene.add(light2)
+      // var plane = new THREE.Plane( new THREE.Vector3( 0, 0, 0 ), 3 );
+      // plane.receiveShadow = true;
+      // var helper = new THREE.PlaneHelper( plane, 500, 0x7777ff );
+      // var groundGeometry = new THREE.PlaneGeometry(100, 200, 20, 20);
+      //   var groundMaterial = new THREE.MeshBasicMaterial({color: 0xfffff0});
+      //   var ground = new THREE.Mesh(groundGeometry, groundMaterial);
+      //   ground.receiveShadow = true;
+      //   ground.rotation.x = -0.5 * Math.PI;
+      //   scene.add(ground);
+      // scene.add( helper );
+      var animate = () => {
         requestAnimationFrame(animate)
         controls.update()
+        if (this.checkbox === true) {
+          this.angle1 = this.angle1 % 100
+          this.angle1 += 0.007
+          this.angle1 = this.angle1 % (2 * 3.1415926)
+          this.angle2 = this.angle2 % 100
+          this.range2p1 += 0.02
+          this.range2p1 = this.range2p1 % (2 * 3.1415926)
+          this.angle2 = Math.sin(this.range2p1)
+          this.angle3 = this.angle3 % 100
+          this.range2p2 -= 0.013
+          this.range2p2 = this.range2p2 % (2 * 3.1415926)
+          this.angle3 = Math.sin(this.range2p2) - 0.25
+        } else {
+          this.range2p1 = Math.asin(this.angle2 % 100) % 100
+          this.range2p2 = Math.asin((this.angle3 % 100 + 0.25) % 100) % 100
+        }
+
+        scene.children[2].children[0].children[0].children[1].rotation.y = this.angle1
+        this.matrix = scene.children[2].children[0].children[0].children[1].matrixWorld
+        scene.children[2].children[0].children[0].children[1].children[1].rotation.x = this.angle2
+        scene.children[2].children[0].children[0].children[1].children[1].position.y = (1 - Math.cos(this.angle2)) * 73.2715926
+        scene.children[2].children[0].children[0].children[1].children[1].position.z = -Math.sin(this.angle2) * 73.2715926
+        scene.children[2].children[0].children[0].children[1].children[1].children[0].rotation.x = this.angle3
+        scene.children[2].children[0].children[0].children[1].children[1].children[0].position.y = (1 - Math.cos(this.angle3)) * 200
+        scene.children[2].children[0].children[0].children[1].children[1].children[0].position.z = -Math.sin(this.angle3) * 200
+        scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].rotation.x = this.angle4
+        this.matrix = scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].matrixWorld
         renderer.render(scene, camera)
       }
-      animate()
     }
   }
 }

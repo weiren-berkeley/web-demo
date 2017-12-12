@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import car from '@/components/car'
+import car2 from '@/components/car2'
 import home from '@/components/home'
 import aboutUs from '@/components/aboutUs'
 import contactUs from '@/components/contactUs'
@@ -29,6 +30,11 @@ export default new Router({
       path: '/car',
       name: 'car',
       component: car
+    },
+    {
+      path: '/car2',
+      name: 'car2',
+      component: car2
     },
     {
       path: '/aboutUs',
