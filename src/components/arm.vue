@@ -1,7 +1,7 @@
 <template>
 <div id="arm">
   <div class="container">
-      <div class="h3" style="text-align:center; margin-top:30px; margin-bottom:20px;"> Robotic Arm (296MA)
+      <div class="h3" style="text-align:center; margin-top:30px; margin-bottom:20px;"> Robotic Arm
       </div>
       <div class="h5" style="text-align:center;">
         {{msg}}

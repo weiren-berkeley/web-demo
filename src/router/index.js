@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import car from '@/components/car'
+import car0 from '@/components/car0'
 import car2 from '@/components/car2'
 import home from '@/components/home'
 import aboutUs from '@/components/aboutUs'
@@ -10,7 +10,11 @@ import study from '@/components/study'
 import start from '@/components/start'
 import feedback from '@/components/feedback'
 import arm from '@/components/arm'
+import animation from '@/components/animation'
+import iintern from '@/components/iintern'
+import iot from '@/components/iot'
 
+import hah from '@/pages/home'
 Vue.use(Router)
 
 export default new Router({
@@ -22,9 +26,14 @@ export default new Router({
       component: home
     },
     {
-      path: '/HelloWorld',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/iintern',
+      name: 'iintern',
+      component: iintern
+    },
+    {
+      path: '/iot',
+      name: 'iot',
+      component: iot
     },
     {
       path: '/car',
@@ -35,6 +44,11 @@ export default new Router({
       path: '/car2',
       name: 'car2',
       component: car2
+    },
+    {
+      path: '/car0',
+      name: 'car0',
+      component: car0
     },
     {
       path: '/aboutUs',
@@ -65,6 +79,16 @@ export default new Router({
       path: '/arm',
       name: 'arm',
       component: arm
+    },
+    {
+      path: '/animation',
+      name: 'animation',
+      component: animation
+    },
+    {
+      path: '/hah',
+      name: 'hah',
+      component: hah
     }
   ]
 })

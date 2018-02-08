@@ -1,7 +1,7 @@
 <template>
 <div id="car2">
   <div class="container">
-      <div class="h3" style="text-align:center; margin-top:80px; margin-bottom:20px;]">Model Predictive Control in Autonomous Driving (231A)
+      <div class="h3" style="text-align:center; margin-top:80px; margin-bottom:20px;]">Model Predictive Control in Autonomous Driving
       </div>
       <div class="h5" style="text-align:center;">
         {{msg}}
