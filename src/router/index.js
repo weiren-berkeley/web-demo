@@ -14,7 +14,7 @@ import animation from '@/components/animation'
 import iintern from '@/components/iintern'
 import iot from '@/components/iot'
 
-import hah from '@/pages/home'
+import internHome from '@/pages/internHome'
 Vue.use(Router)
 
 export default new Router({
@@ -86,9 +86,9 @@ export default new Router({
       component: animation
     },
     {
-      path: '/hah',
+      path: '/internhome',
       name: 'hah',
-      component: hah
+      component: internHome
     }
   ]
 })
