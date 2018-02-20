@@ -73,7 +73,7 @@ export default {
         content: this.content
       }, {emulateJSON: true})
       .then((res) => {
-        let oRes = this.formatRes(res)
+        let oRes = this.$parent.formatRes(res)
         if (oRes.code === 200) {
           this.name = ''
           this.content = ''
@@ -84,13 +84,9 @@ export default {
         }
       })
     },
-    formatRes (res) {
-      let oRes = (typeof res.body === 'string') ? JSON.parse(res.body) : res.body
-      return oRes
-    },
     getCommits () {
       return this.$http.get('http://fangshan.bjtcsj.com/api/comments').then((res) => {
-        let oRes = this.formatRes(res)
+        let oRes = this.$parent.formatRes(res)
         if (oRes.code === 200) {
           this.commits = oRes.commentList
         } else {

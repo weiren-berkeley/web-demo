@@ -20,6 +20,7 @@
                   Projects
                 </a>
                 <div class="dropdown-menu text-primary" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item text-primary" href="/iot">IoT Project</a>
                   <a class="dropdown-item text-primary" href="/arm">Robotic Arm</a>
                   <a class="dropdown-item text-primary" href="/car0">Autonomous Driving I</a>
                   <a class="dropdown-item text-primary" href="/car2">Autonomous Driving II</a>
@@ -72,7 +73,13 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  methods: {
+    formatRes (res) {
+      let oRes = (typeof res.body === 'string') ? JSON.parse(res.body) : res.body
+      return oRes
+    }
+  }
 }
 </script>
 

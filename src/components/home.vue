@@ -82,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="" style="margin-top:5rem; color: #49505b; font-size:1.8rem;">
+    <div class="" style="padding-top:3rem;padding-bottom:5rem; color: #ffffff; font-size:1.8rem;background: #808B96;">
       <div class="container">
 
         <div class="row" style="margin-top:2rem; font-weight: 500; color: #BEC8CE; font-size:1rem;">
@@ -102,16 +102,16 @@
         <div class="row" style="text-align:center;">
           <div class="col-md-2"></div>
           <div class="col-md-8">
-            <img src="../assets/img/structure.jpeg" class="img-fluid" alt="Responsive image" style="width:100%">
+            <img src="../assets/img/framework_online.png" class="img-fluid" alt="Responsive image" style="width:100%;">
           </div>
         </div>
       </div>
     </div>
-    <div class="" style="margin-top:5rem; padding-top:5rem; padding-bottom:5rem; color: #49505b; background: #8acace;">
-      <div class="" style="text-align:center; color: #ffffff; font-size:2.2rem; font-weight: 700;">
+    <div class="" style="margin-top:3rem; padding-top:3rem; padding-bottom:5rem; color: #808B96; background: #ffffff;">
+      <div class="" style="text-align:center; font-size:2.2rem; font-weight: 700;">
         <a>What people are saying</a>
       </div>
-      <div class="" style="text-align:center; color: #ffffff; font-size:1.2rem;">
+      <div class="" style="text-align:center; font-size:1.2rem;">
         <div class="row" style="margin-top:2rem;">
           <div class="col-md-3"></div>
           <div class="col-md-6" style="text-align: justify;">
@@ -128,7 +128,7 @@
           </div>
         </div>
       </div>
-      <div class="" style="text-align:center; color: #ffffff; font-size:1.2rem;">
+      <div class="" style="text-align:center; font-size:1.2rem;">
         <div class="row" style="margin-top:2rem;">
           <div class="col-md-3"></div>
           <div class="col-md-6" style="text-align: justify;">
@@ -148,16 +148,6 @@
     </div>
 
 
-
-    <!-- <div class="row">
-      <div class="col-md-3">
-      </div>
-      <div class="col-md-6">
-        <img src="../assets/img/function.png" class="img-fluid" alt="Responsive image">
-      </div>
-      <div class="col-md-3">
-      </div>
-    </div> -->
 
     <br>
     <br>
