@@ -10,7 +10,7 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA6.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Our Mission</h4>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/stepA5.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Get Start</h4>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/study1.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Project 1</h4>
@@ -49,7 +49,7 @@
       <br>
       <div class="row">
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/study2.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Project 2</h4>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/study3.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Project 3</h4>
@@ -73,7 +73,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/study4.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Project 4</h4>
@@ -91,7 +91,7 @@
       <div class="row">
 
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/lego.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Get Start</h4>
@@ -104,7 +104,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/bd.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Get Start</h4>
@@ -117,7 +117,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/ros.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Get Start</h4>
@@ -134,7 +134,7 @@
       <div class="row">
 
         <div class="col-md-4">
-          <div class="card" style="width: 20rem;">
+          <div class="card" style="width: 100%;">
           <img class="card-img-top" style="height: 14rem;" src="../assets/img/arm.png" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Get Start</h4>
