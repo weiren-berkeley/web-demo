@@ -13,6 +13,8 @@ import arm from '@/components/arm'
 import animation from '@/components/animation'
 import iintern from '@/components/iintern'
 import iot from '@/components/iot'
+import admin from '@/components/admin'
+import startIoT from '@/components/startIoT'
 Vue.use(Router)
 
 export default new Router({
@@ -82,6 +84,16 @@ export default new Router({
       path: '/animation',
       name: 'animation',
       component: animation
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: admin
+    },
+    {
+      path: '/startIoT',
+      name: 'startIoT',
+      component: startIoT
     }
   ]
 })

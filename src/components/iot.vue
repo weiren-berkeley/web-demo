@@ -108,9 +108,26 @@ export default {
           }
           window.updatePublishData(this.msg)
         }
-        // this.data.push(that.command_angle)
       }
       window.setInterval(update, 50)
+      var status = () => {
+        if (this.commandEnable) {
+          window.updatePublishData({
+            type: 'status',
+            text: 'This is a status from website.',
+            WebStatus: 'Controlling',
+            Id: this.clientId
+          })
+        } else {
+          window.updatePublishData({
+            type: 'status',
+            text: 'This is a status from website.',
+            WebStatus: 'Online',
+            Id: this.clientId
+          })
+        }
+      }
+      window.setInterval(status, 1000)
     },
     foo () {
       var roboticArm = document.getElementById('roboticArm')
@@ -166,20 +183,20 @@ export default {
           if (this.direction) {
             this.command_angle = this.command_angle % 1000
             this.command_angle = Math.round(this.command_angle)
-            this.command_angle += 1
+            this.command_angle += 3
             // this.command_angle = round(this.command_angle)
             this.command_angle = this.command_angle % 1000
 
-            if (this.command_angle > 198) {
+            if (this.command_angle > 196) {
               this.direction = false
             }
           } else {
             this.command_angle = this.command_angle % 1000
             this.command_angle = Math.round(this.command_angle)
-            this.command_angle -= 1
+            this.command_angle -= 3
             this.command_angle = this.command_angle % 1000
 
-            if (this.command_angle < 2) {
+            if (this.command_angle < 4) {
               this.direction = true
             }
           }
@@ -187,9 +204,9 @@ export default {
           // this.command_angle = this.command_angle % 1000
         }
         if (this.commandEnable) {
-          scene.children[2].children[0].children[0].children[1].rotation.y = this.command_angle / 180 * 3.1415926
+          scene.children[2].children[0].children[0].children[1].rotation.y = -this.command_angle / 180 * 3.1415926
         } else {
-          scene.children[2].children[0].children[0].children[1].rotation.y = this.robotic_angle / 180 * 3.1415926
+          scene.children[2].children[0].children[0].children[1].rotation.y = -this.robotic_angle / 180 * 3.1415926
         }
         this.matrix = scene.children[2].children[0].children[0].children[1].matrixWorld
         renderer.render(scene, camera)
@@ -224,7 +241,7 @@ export default {
       //
       // Create a client id to use when connecting to AWS IoT.
       //
-      var clientId = 'mqtt-explorer-' + (Math.floor((Math.random() * 100000000) + 1))
+      var clientId = 'OPARP-Web-' + (Math.floor((Math.random() * 100000000) + 1))
       that.clientId = clientId
       //
       // Initialize our configuration.
