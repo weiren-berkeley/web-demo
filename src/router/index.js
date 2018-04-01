@@ -15,10 +15,23 @@ import iintern from '@/components/iintern'
 import iot from '@/components/iot'
 import admin from '@/components/admin'
 import startIoT from '@/components/startIoT'
+import published from '@/components/published'
+
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      if (to.hash) {
+        return { selector: to.hash }
+      } else {
+        return { x: 0, y: 0 }
+      }
+    }
+  },
   routes: [
     {
       path: '/',
@@ -94,6 +107,16 @@ export default new Router({
       path: '/startIoT',
       name: 'startIoT',
       component: startIoT
+    },
+    {
+      path: '/startIoT/:queryClientID',
+      name: 'startIoT',
+      component: startIoT
+    },
+    {
+      path: '/published',
+      name: 'published',
+      component: published
     }
   ]
 })

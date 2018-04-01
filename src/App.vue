@@ -10,33 +10,51 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link text-primary" href="/">Home</a>
+                <router-link :to="{ name: 'home'}">
+                  <a class="nav-link text-primary" href="">Home</a>
+                </router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="/study">Study</a>
+                <router-link :to="{ name: 'study'}">
+                  <a class="nav-link text-primary" href="">Study</a>
+                </router-link>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Projects
                 </a>
                 <div class="dropdown-menu text-primary" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item text-primary" href="/startIoT">Program Robot</a>
+                  <router-link :to="{ name: 'startIoT'}"><a class="dropdown-item text-primary" href="">Program Robot</a></router-link>
+                  <router-link :to="{ name: 'published'}"><a class="dropdown-item text-primary" href="">User's program</a></router-link>
+                  <router-link :to="{ name: 'iot'}"><a class="dropdown-item text-primary" href="">IoT Project</a></router-link>
+                  <router-link :to="{ name: 'admin'}"><a class="dropdown-item text-primary" href="">IoT Console</a></router-link>
+                  <router-link :to="{ name: 'arm'}"><a class="dropdown-item text-primary" href="">Robotic Arm</a></router-link>
+
+                  <!-- <a class="dropdown-item text-primary" href="/published">User's program</a>
                   <a class="dropdown-item text-primary" href="/iot">IoT Project</a>
                   <a class="dropdown-item text-primary" href="/admin">IoT Console</a>
                   <a class="dropdown-item text-primary" href="/arm">Robotic Arm</a>
                   <a class="dropdown-item text-primary" href="/car0">Autonomous Driving I</a>
-                  <a class="dropdown-item text-primary" href="/car2">Autonomous Driving II</a>
+                  <a class="dropdown-item text-primary" href="/car2">Autonomous Driving II</a> -->
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="/aboutUs">About Us</a>
+                <router-link :to="{ name: 'aboutUs'}">
+                  <a class="nav-link text-primary" href="">About Us</a>
+                </router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="/contactUs">Contact Us</a>
+                <router-link :to="{ name: 'contactUs'}">
+                  <a class="nav-link text-primary" href="">Contact Us</a>
+                </router-link>
+                <!-- <a class="nav-link text-primary" href="/contactUs">Contact Us</a> -->
               </li>
 
               <li class="nav-item">
-                <a class="nav-link text-primary" href="/feedback">Give Us Feedback</a>
+                <router-link :to="{ name: 'feedback'}">
+                  <a class="nav-link text-primary" href="">Give Us Feedback</a>
+                </router-link>
+                <!-- <a class="nav-link text-primary" href="/feedback">Give Us Feedback</a> -->
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

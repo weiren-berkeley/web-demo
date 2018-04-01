@@ -5,111 +5,57 @@
       <div class="row" style="text-align:center; margin-top:2rem;">
         <div class="col-md-7">
           <div id="blocklyDiv" style="width:100%; height:33rem;"></div>
-          <xml id="toolbox" style="display: none">
-            <category name="String" colour="160">
-              <block type="text" colour="50"></block>
-              <block type="text_print" colour="50"></block>
-            </category>
-            <category name="If" colour="200">
-              <block type="controls_if"></block>
-              <block type="controls_if">
-                <mutation else="1"></mutation>
-              </block>
-              <block type="controls_if">
-                <mutation elseif="1" else="1"></mutation>
-              </block>
-            </category>
-            <category name="Boolean" colour="210">
-              <block type="logic_compare"></block>
-              <block type="logic_operation"></block>
-              <block type="logic_negate"></block>
-              <block type="logic_boolean"></block>
-              <block type="logic_null"></block>
-              <block type="logic_ternary"></block>
-            </category>
-            <category name="Loops" colour="120">
-              <block type="controls_repeat_ext">
-                <value name="TIMES">
-                  <block type="math_number">
-                    <field name="NUM">10</field>
-                  </block>
-                </value>
-              </block>
-              <block type="controls_whileUntil"></block>
-              <block type="controls_for">
-                <field name="VAR">i</field>
-                <value name="FROM">
-                  <block type="math_number">
-                    <field name="NUM">1</field>
-                  </block>
-                </value>
-                <value name="TO">
-                  <block type="math_number">
-                    <field name="NUM">10</field>
-                  </block>
-                </value>
-                <value name="BY">
-                  <block type="math_number">
-                    <field name="NUM">1</field>
-                  </block>
-                </value>
-              </block>
-              <block type="controls_forEach"></block>
-              <block type="controls_flow_statements"></block>
-            </category>
-            <category name="Math" colour="230">
-              <block type="math_number"></block>
-              <block type="math_arithmetic"></block>
-              <block type="math_single"></block>
-              <block type="math_trig"></block>
-              <block type="math_constant"></block>
-              <block type="math_number_property"></block>
-              <block type="math_round"></block>
-              <block type="math_on_list"></block>
-              <block type="math_modulo"></block>
-              <block type="math_constrain">
-                <value name="LOW">
-                  <block type="math_number">
-                    <field name="NUM">1</field>
-                  </block>
-                </value>
-                <value name="HIGH">
-                  <block type="math_number">
-                    <field name="NUM">100</field>
-                  </block>
-                </value>
-              </block>
-              <block type="math_random_int">
-                <value name="FROM">
-                  <block type="math_number">
-                    <field name="NUM">1</field>
-                  </block>
-                </value>
-                <value name="TO">
-                  <block type="math_number">
-                    <field name="NUM">100</field>
-                  </block>
-                </value>
-              </block>
-              <block type="math_random_float"></block>
-            </category>
-            <category name="Variables" custom="VARIABLE" colour="330"></category>
-          </xml>
         </div>
         <div class="col-md-5" style="padding:0rem">
-            <div class="row alert alert-secondary" style="margin:1.5rem;height:5rem;">
-             <div class="col-lg-6">
-               <img src="../assets/img/check.png" @click="check()" class="rounded-circle" style="height: 50px; width: 50px;">
-               <a>Check</a>
+            <div id="programConsole" class="row alert alert-secondary" style="margin:10px">
+             <div class="col-lg-4">
+               <button type="button" class="btn btn-primary btn-block" style="margin-top:0.1rem;margin-bottom:0.1rem;" @click="check()">Code</button>
              </div>
-             <div class="col-lg-6">
-               <img src="../assets/img/run.png" @click="run()" class="rounded-circle" style="height: 50px; width: 50px;">
-               <a>Run</a>
+             <div class="col-lg-4">
+               <button type="button" class="btn btn-success btn-block" style="margin-top:0.1rem;margin-bottom:0.1rem;" @click="run()">Run</button>
+             </div>
+             <div class="col-lg-4">
+               <button type="button" class="btn btn-warning btn-block" style="margin-top:0.1rem;margin-bottom:0.1rem;" @click="goBottom()">Publish</button>
              </div>
            </div>
           <div class="threescene border border-primary" id="roboticArm"></div>
         </div>
       </div>
+      <p id="inputForm" class="h5 text-center" style="margin-top:3rem;">Publish Your Programming</p>
+          <form id="publishForms">
+            <div class="row" style="text-align:center; margin-top:2rem;">
+              <div class="col-lg-2">
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Your name</label>
+                  <input type="text" class="form-control" v-model="yourName" id="authorName" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Project name</label>
+                  <input type="text" class="form-control" v-model="projectName" id="imputProjectName" placeholder="Project name" required>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" v-model="emailAdress" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Description</label>
+                  <input type="text" class="form-control" v-model="description" id="exampleInputPassword1" placeholder="Description" required>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row text-center" style="text-align:center;">
+              <div class="col-lg-4">
+              </div>
+              <div class="col-lg-4">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+              </div>
+            </div>
+          </form>
     </div>
     <br>
   </div>
@@ -138,7 +84,13 @@ export default {
       direction: true,
       autorun: false,
       enableMsg: '',
-      code: ''
+      code: '',
+      clientID: '',
+      yourName: '',
+      emailAdress: '',
+      description: '',
+      projectName: '',
+      queryClientID: ''
       // data: []
     }
   },
@@ -148,6 +100,52 @@ export default {
     // this.d3js()
   },
   methods: {
+    goBottom () {
+      document.getElementById('inputForm').scrollIntoView()
+    },
+    publish () {
+      var workspace = window.Blockly.getMainWorkspace()
+      var xml = window.Blockly.Xml.workspaceToDom(workspace)
+      var data = window.Blockly.Xml.domToText(xml)
+      return this.$http.post('http://api.oparp.com/publish', {
+        clientID: this.clientID,
+        yourName: this.yourName,
+        emailAdress: this.emailAdress,
+        description: this.description,
+        projectName: this.projectName,
+        data: data
+      }, {emulateJSON: true}, { credentials: true })
+      .then((res) => {
+        let oRes = this.$parent.formatRes(res)
+        if (oRes.status === 200) {
+          this.$router.push({path: '/published'})
+        } else {
+          console.log('publish api error')
+        }
+      })
+    },
+    loadProgram () {
+      var workspace = window.Blockly.getMainWorkspace()
+      var xml = window.Blockly.Xml.workspaceToDom(workspace)
+      var data
+      return this.$http.get('http://api.oparp.com/onePublished', {params: {
+        'clientID': this.$route.params.queryClientID
+      }}, { credentials: true })
+      .then((res) => {
+        let oRes = this.$parent.formatRes(res)
+        data = oRes.data
+        console.log(data)
+        try {
+          xml = window.Blockly.Xml.textToDom(data)
+        } catch (e) {
+          alert('error loading xml data' + '\nXML: ' + data)
+          return
+        }
+        // Clear the workspace to avoid merge.
+        workspace.clear()
+        window.Blockly.Xml.domToWorkspace(xml, workspace)
+      })
+    },
     check () {
       this.code = window.Blockly.JavaScript.workspaceToCode(window.workspace)
       alert('Your code in Javascript is: \n\n' + this.code)
@@ -155,14 +153,57 @@ export default {
     run () {
       try {
         this.code = window.Blockly.JavaScript.workspaceToCode(window.workspace)
-        // this.robotic_angle = 180;
-        // eslint-disable-next-line
-        eval(this.code)
+        var initApi = (interpreter, scope) => {
+          function initInterpreterWaitForSeconds (interpreter, scope) {
+            // Ensure function name does not conflict with variable names.
+            window.Blockly.JavaScript.addReservedWords('waitForSeconds')
+            var wrapper = interpreter.createAsyncFunction(
+              function (timeInSeconds, callback) {
+                // Delay the call to the callback.
+                setTimeout(callback, timeInSeconds * 1000)
+              })
+            var setAngle = interpreter.createAsyncFunction(
+              function (timeInSeconds, callback) {
+                // Delay the call to the callback.
+                setTimeout(callback, timeInSeconds * 1000)
+              })
+            interpreter.setProperty(scope, 'waitForSeconds', wrapper)
+            interpreter.setProperty(scope, 'waitForSeconds', setAngle)
+          }
+          initInterpreterWaitForSeconds(interpreter, scope)
+          var wrapper = function (text) {
+            return alert(arguments.length ? text : '')
+          }
+          interpreter.setProperty(scope, 'alert',
+              interpreter.createNativeFunction(wrapper))
+          var setAngle = (text) => {
+              // this.robotic_angle = text
+            this.robotic_angle = text
+          }
+          interpreter.setProperty(scope, 'setAngle',
+              interpreter.createNativeFunction(setAngle))
+        }
+        var runner
+        var myInterpreter = new window.Interpreter(this.code, initApi)
+        runner = () => {
+          if (myInterpreter.run()) {}
+          setTimeout(runner, 1)
+        }
+        runner()
       } catch (e) {
         alert(e)
       }
     },
     programming () {
+      var node = document.getElementById('publishForms')
+      node.addEventListener('submit', (event) => {
+        event.preventDefault()
+        this.publish()
+      })
+      this.clientID = 'OPARP-Program-' + Math.floor(Date.now() / 1000) + (Math.floor((Math.random() * 100000000) + 1))
+      var programConsole = document.getElementById('programConsole')
+      document.getElementById('roboticArm').style.height = document.getElementById('blocklyDiv').clientHeight -
+      programConsole.clientHeight - programConsole.clientTop * 2 - 20 + 'px'
       var promise = new Promise(function (resolve, reject) {
         var check = () => {
           if (window.Blockly !== undefined) {
@@ -173,18 +214,127 @@ export default {
       })
       promise.then(function (result) { update() })
       var update = () => {
-        // var toolbox = '<xml>'
-        // toolbox += '<category name="Variables" custom="VARIABLE"></category>'
-        // // toolbox += '<block type="controls_if"></block>'
-        // // toolbox += '<block type="controls_repeat_ext"></block>'
-        // // toolbox += '<block type="logic_compare"></block>'
-        // // toolbox += '<block type="math_number"></block>'
-        // // toolbox += '<block type="text"></block><block type="text_print"></block>'
-        // toolbox += '</xml>'
+        var toolbox = '<xml id="toolbox" style="display: none">' +
+          '<category name="Control" colour="330">' +
+            '<block type="variablesSetAngle" colour="330"><field name="VAR" id="Dd}B,w(xa1d)PA`|)iV*" variabletype="">Angle</field>' +
+            '</block><block type="wait_seconds" colour="330"></block></category><category name="String" colour="160">' +
+            '<block type="text" colour="50"></block><block type="text_print" colour="50"></block>' +
+          '</category><category name="If" colour="200"><block type="controls_if">' + '</block>' +
+            '<block type="controls_if"><mutation else="1"></mutation></block>' +
+            '<block type="controls_if"><mutation elseif="1" else="1">' + '</mutation></block>' +
+          '</category><category name="Boolean" colour="210"><block type="logic_compare">' + '</block>' +
+            '<block type="logic_operation">' + '</block><block type="logic_negate">' + '</block>' +
+            '<block type="logic_boolean">' + '</block><block type="logic_null">' + '</block>' +
+            '<block type="logic_ternary">' + '</block></category><category name="Loops" colour="120">' +
+            '<block type="controls_repeat_ext"><value name="TIMES"><block type="math_number">' +
+                  '<field name="NUM">' + '10' + '</field></block></value></block>' +
+            '<block type="controls_whileUntil">' + '</block><block type="controls_for"><field name="VAR">i</field>' +
+              '<value name="FROM">' +
+                '<block type="math_number">' +
+                  '<field name="NUM">1</field>' +
+                '</block>' +
+              '</value>' +
+              '<value name="TO">' +
+                '<block type="math_number"><field name="NUM">10</field></block>' +
+              '</value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value></block>' +
+            '<block type="controls_forEach">' + '</block>' +
+            '<block type="controls_flow_statements">' + '</block>' +
+          '</category>' +
+          '<category name="Math" colour="230">' +
+            '<block type="math_number">' + '</block>' +
+            '<block type="math_arithmetic">' + '</block>' +
+            '<block type="math_single">' + '</block>' +
+            '<block type="math_trig">' + '</block>' +
+            '<block type="math_constant">' + '</block>' +
+            '<block type="math_number_property">' + '</block>' +
+            '<block type="math_round">' + '</block>' +
+            '<block type="math_on_list">' + '</block>' +
+            '<block type="math_modulo">' + '</block>' +
+            '<block type="math_constrain">' +
+              '<value name="LOW">' +
+                '<block type="math_number">' +
+                  '<field name="NUM">1</field>' +
+                '</block>' +
+              '</value>' +
+              '<value name="HIGH">' +
+                '<block type="math_number">' +
+                  '<field name="NUM">100</field>' +
+                '</block>' +
+              '</value>' +
+            '</block>' +
+            '<block type="math_random_int">' +
+              '<value name="FROM">' +
+                '<block type="math_number">' +
+                  '<field name="NUM">1</field>' +
+                '</block>' +
+              '</value>' +
+              '<value name="TO">' +
+                '<block type="math_number">' +
+                  '<field name="NUM">100</field>' +
+                '</block>' +
+              '</value>' +
+            '</block>' +
+            '<block type="math_random_float">' + '</block>' +
+          '</category>' +
+          '<category name="Variables" custom="VARIABLE" colour="330">' + '</category>' +
+        '</xml>'
         var blocklyDiv = document.getElementById('blocklyDiv')
+        var variablesSetAngle = {
+          'message0': 'set Angle to %1',
+          'args0': [
+            {
+              'type': 'input_value',
+              'name': 'VALUE'
+            }
+          ],
+          'previousStatement': null,
+          'nextStatement': null,
+          'colour': 330
+        }
+        window.Blockly.Blocks['variablesSetAngle'] = {
+          init: function () {
+            this.jsonInit(variablesSetAngle)
+            // Assign 'this' to a variable for use in the tooltip closure below.
+            var thisBlock = this
+            this.setTooltip(function () {
+              return 'Set Angle to "%1".'.replace('%1',
+                  thisBlock.getFieldValue('VALUE'))
+            })
+          }
+        }
+        var deleySecond = {
+          'message0': 'deley %1 seconds',
+          'args0': [
+            {
+              'type': 'field_number',
+              'name': 'TIME',
+              'value': 0.1,
+              'min': 0,
+              'max': 1
+            }
+          ],
+          'nextStatement': null,
+          'previousStatement': null,
+          'colour': 220
+        }
+        window.Blockly.Blocks['deleySecond'] = {
+          init: function () {
+            this.jsonInit(deleySecond)
+            this.setPreviousStatement(true, 'null')
+            this.setNextStatement(true, 'null')
+            // Assign 'this' to a variable for use in the tooltip closure below.
+            var thisBlock = this
+            this.setTooltip(function () {
+              return 'Deley "%1". second'.replace('%1',
+                  thisBlock.getFieldValue('TIME'))
+            })
+          }
+        }
         window.workspace = window.Blockly.inject(blocklyDiv,
-            {toolbox: document.getElementById('toolbox')})
-        console.log(window.workspace)
+            {toolbox: toolbox})
+        if (this.$route.params.queryClientID !== undefined) {
+          this.loadProgram()
+        }
       }
     },
     armAnimation () {
@@ -194,7 +344,7 @@ export default {
       var scene = new THREE.Scene()
       // var camera = new THREE.PerspectiveCamera(450, window.innerWidth / window.innerHeight, 0.1, 10000)
       var aspect = this.width / this.height
-      var frustumSize = 450
+      var frustumSize = 550
       var camera = new THREE.OrthographicCamera(frustumSize * aspect / -2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 1, 10000)
       scene.add(camera)
       // camera.lookAt(new THREE.Vector3(100,100,100))
@@ -225,7 +375,7 @@ export default {
       scene.add(gridHelper)
       // objectLoader
       var objectLoader = new THREE.ObjectLoader()
-      objectLoader.load('../static/assembly.json', (obj) => {
+      objectLoader.load('../static/assemblyColor.json', (obj) => {
         scene.add(obj)
         // console.log(scene)
         scene.children[2].position.y = -100
@@ -260,8 +410,9 @@ export default {
           }
           // this.command_angle = this.command_angle % 1000
         }
-        scene.children[2].children[0].children[0].children[1].rotation.y = -this.robotic_angle / 180 * 3.1415926
-        this.matrix = scene.children[2].children[0].children[0].children[1].matrixWorld
+        // console.log(scene)
+        scene.children[2].children[4].children[0].children[1].rotation.y = -this.robotic_angle / 180 * 3.1415926
+        this.matrix = scene.children[2].children[4].children[0].children[1].matrixWorld
         renderer.render(scene, camera)
       }
     },
@@ -476,10 +627,10 @@ export default {
   font-weight: bold
 }
 #roboticArm {
-  height:25rem;
+  /*height:25rem;*/
   width:100%;
 }
-@media (max-width: 576px) {
+/*@media (max-width: 576px) {
   #wrapper {
     height:10rem;
   }
@@ -491,6 +642,6 @@ export default {
     height:15rem;
     width:100%;
   }
-}
+}*/
 
 </style>

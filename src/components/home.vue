@@ -1,5 +1,4 @@
 <template>
-
   <div id="home">
     <div class=""  style=" padding-bottom: 8rem; border-bottom: 1px solid #e7e4e4;">
       <div class="container">
@@ -18,7 +17,10 @@
               <!-- <div class="col-md-6">
               </div> -->
               <div class="col-md-5">
-                <a href="/iot" class="btn btn-primary btn-block" role="button" style=" font-weight:600">Start</a>
+                <router-link :to="{ name: 'startIoT'}">
+                  <a href="" class="btn btn-primary btn-block" role="button" style=" font-weight:600">Start</a>
+                </router-link>
+
               </div>
             </div>
           </div>

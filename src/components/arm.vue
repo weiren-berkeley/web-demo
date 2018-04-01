@@ -129,7 +129,7 @@ export default {
       scene.add(gridHelper)
       // objectLoader
       var objectLoader = new THREE.ObjectLoader()
-      objectLoader.load('../static/assembly.json', (obj) => {
+      objectLoader.load('../static/assemblyColor.json', (obj) => {
         scene.add(obj)
         console.log(scene)
         scene.children[2].position.y = -100
@@ -194,16 +194,16 @@ export default {
           this.range2p2 = Math.asin((this.angle3 % 100 + 0.25) % 100) % 100
         }
 
-        scene.children[2].children[0].children[0].children[1].rotation.y = this.angle1
-        this.matrix = scene.children[2].children[0].children[0].children[1].matrixWorld
-        scene.children[2].children[0].children[0].children[1].children[1].rotation.x = this.angle2
-        scene.children[2].children[0].children[0].children[1].children[1].position.y = (1 - Math.cos(this.angle2)) * 73.2715926
-        scene.children[2].children[0].children[0].children[1].children[1].position.z = -Math.sin(this.angle2) * 73.2715926
-        scene.children[2].children[0].children[0].children[1].children[1].children[0].rotation.x = this.angle3
-        scene.children[2].children[0].children[0].children[1].children[1].children[0].position.y = (1 - Math.cos(this.angle3)) * 200
-        scene.children[2].children[0].children[0].children[1].children[1].children[0].position.z = -Math.sin(this.angle3) * 200
-        scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].rotation.x = this.angle4
-        this.matrix = scene.children[2].children[0].children[0].children[1].children[1].children[0].children[1].matrixWorld
+        scene.children[2].children[4].children[0].children[1].rotation.y = this.angle1
+        this.matrix = scene.children[2].children[4].children[0].children[1].matrixWorld
+        scene.children[2].children[4].children[0].children[1].children[1].rotation.x = this.angle2
+        scene.children[2].children[4].children[0].children[1].children[1].position.y = (1 - Math.cos(this.angle2)) * 73.2715926
+        scene.children[2].children[4].children[0].children[1].children[1].position.z = -Math.sin(this.angle2) * 73.2715926
+        scene.children[2].children[4].children[0].children[1].children[1].children[0].rotation.x = this.angle3
+        scene.children[2].children[4].children[0].children[1].children[1].children[0].position.y = (1 - Math.cos(this.angle3)) * 200
+        scene.children[2].children[4].children[0].children[1].children[1].children[0].position.z = -Math.sin(this.angle3) * 200
+        scene.children[2].children[4].children[0].children[1].children[1].children[0].children[1].rotation.x = this.angle4
+        this.matrix = scene.children[2].children[4].children[0].children[1].children[1].children[0].children[1].matrixWorld
         renderer.render(scene, camera)
       }
     }
