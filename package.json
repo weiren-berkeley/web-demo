@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@slack/client": "^4.1.0",
     "aws-iot-device-sdk": "^2.2.1",
     "aws-sdk": "^2.211.1",
     "babel-runtime": "^6.26.0",
@@ -19,7 +20,11 @@
     "d3": "^4.13.0",
     "fs": "0.0.1-security",
     "jquery": "^1.12.4",
+    "net": "^1.0.2",
     "popper.js": "^1.14.1",
+    "slack": "^11.0.0",
+    "slapp": "^3.1.1",
+    "smartslack": "^1.2.1",
     "three": "^0.88.0",
     "three-addons": "^1.1.0",
     "three-js": "^79.0.0",

@@ -27,6 +27,7 @@
                   <router-link :to="{ name: 'startIoT'}"><a class="dropdown-item text-primary" href="">Program Robot</a></router-link>
                   <router-link :to="{ name: 'published'}"><a class="dropdown-item text-primary" href="">User's program</a></router-link>
                   <router-link :to="{ name: 'iot'}"><a class="dropdown-item text-primary" href="">IoT Project</a></router-link>
+                  <router-link :to="{ name: 'iot2'}"><a class="dropdown-item text-primary" href="">IoT 5DOF Project</a></router-link>
                   <router-link :to="{ name: 'admin'}"><a class="dropdown-item text-primary" href="">IoT Console</a></router-link>
                   <router-link :to="{ name: 'arm'}"><a class="dropdown-item text-primary" href="">Robotic Arm</a></router-link>
 

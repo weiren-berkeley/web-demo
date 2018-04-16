@@ -13,9 +13,11 @@ import arm from '@/components/arm'
 import animation from '@/components/animation'
 import iintern from '@/components/iintern'
 import iot from '@/components/iot'
+import iot2 from '@/components/iot2'
 import admin from '@/components/admin'
 import startIoT from '@/components/startIoT'
 import published from '@/components/published'
+import chat from '@/components/chat'
 
 Vue.use(Router)
 
@@ -47,6 +49,11 @@ export default new Router({
       path: '/iot',
       name: 'iot',
       component: iot
+    },
+    {
+      path: '/iot2',
+      name: 'iot2',
+      component: iot2
     },
     {
       path: '/car',
@@ -117,6 +124,11 @@ export default new Router({
       path: '/published',
       name: 'published',
       component: published
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: chat
     }
   ]
 })

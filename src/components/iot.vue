@@ -22,13 +22,21 @@
                   </label>
                 </div>
                 <br>
-                <input type="range" class="slider" min="0" max="200" step="1" v-model="command_angle" />
-                <br>
-                Command joint angle:
-                {{command_angle}}
-                <br>
-                Robotic angle:
-                {{robotic_angle}}
+                <input type="range" class="slider" min="0" max="200" step="1" v-model="command_angle1" />
+                Command joint angle1:
+                {{command_angle1}}
+                <!-- <input type="range" class="slider" min="0" max="200" step="1" v-model="command_angle2" />
+                Command joint angle2:
+                {{command_angle2}}
+                <input type="range" class="slider" min="0" max="200" step="1" v-model="command_angle3" />
+                Command joint angle3:
+                {{command_angle3}}
+                <input type="range" class="slider" min="0" max="200" step="1" v-model="command_angle4" />
+                Command joint angle4:
+                {{command_angle4}}
+                <input type="range" class="slider" min="0" max="200" step="1" v-model="command_angle5" />
+                Command joint angle5:
+                {{command_angle5}} -->
              </div>
           </div>
         </div>
@@ -65,7 +73,11 @@ export default {
       host: 'a21zozqgendyv9.iot.us-east-2.amazonaws.com',
       password: '',
       msg: {},
-      command_angle: 0,
+      command_angle1: 0,
+      command_angle2: 0,
+      command_angle3: 0,
+      command_angle4: 0,
+      command_angle5: 0,
       robotic_angle: 0,
       commandEnable: false,
       checkbox: false,
@@ -104,7 +116,11 @@ export default {
           this.msg = {
             type: 'data',
             text: 'This is a command from website.',
-            command_angle1: this.command_angle
+            command_angle1: this.command_angle1
+            // command_angle2: this.command_angle2,
+            // command_angle3: this.command_angle3,
+            // command_angle4: this.command_angle4,
+            // command_angle5: this.command_angle5
           }
           window.updatePublishData(this.msg)
         }
@@ -167,7 +183,7 @@ export default {
       scene.add(gridHelper)
       // objectLoader
       var objectLoader = new THREE.ObjectLoader()
-      objectLoader.load('../static/assembly.json', (obj) => {
+      objectLoader.load('../static/assemblyColor.json', (obj) => {
         scene.add(obj)
         // console.log(scene)
         scene.children[2].position.y = -100
@@ -181,22 +197,22 @@ export default {
         if (this.autorun) {
           // this.command_angle = this.command_angle % 1000
           if (this.direction) {
-            this.command_angle = this.command_angle % 1000
-            this.command_angle = Math.round(this.command_angle)
-            this.command_angle += 3
+            this.command_angle1 = this.command_angle1 % 1000
+            this.command_angle1 = Math.round(this.command_angle1)
+            this.command_angle1 += 3
             // this.command_angle = round(this.command_angle)
-            this.command_angle = this.command_angle % 1000
+            this.command_angle1 = this.command_angle1 % 1000
 
-            if (this.command_angle > 196) {
+            if (this.command_angle1 > 196) {
               this.direction = false
             }
           } else {
-            this.command_angle = this.command_angle % 1000
-            this.command_angle = Math.round(this.command_angle)
-            this.command_angle -= 3
-            this.command_angle = this.command_angle % 1000
+            this.command_angle1 = this.command_angle1 % 1000
+            this.command_angle1 = Math.round(this.command_angle1)
+            this.command_angle1 -= 3
+            this.command_angle1 = this.command_angle1 % 1000
 
-            if (this.command_angle < 4) {
+            if (this.command_angle1 < 4) {
               this.direction = true
             }
           }
@@ -204,11 +220,11 @@ export default {
           // this.command_angle = this.command_angle % 1000
         }
         if (this.commandEnable) {
-          scene.children[2].children[0].children[0].children[1].rotation.y = -this.command_angle / 180 * 3.1415926
+          scene.children[2].children[4].children[0].children[1].rotation.y = -this.command_angle1 / 180 * 3.1415926
         } else {
-          scene.children[2].children[0].children[0].children[1].rotation.y = -this.robotic_angle / 180 * 3.1415926
+          scene.children[2].children[4].children[0].children[1].rotation.y = -this.robotic_angle / 180 * 3.1415926
         }
-        this.matrix = scene.children[2].children[0].children[0].children[1].matrixWorld
+        this.matrix = scene.children[2].children[4].children[0].children[1].matrixWorld
         renderer.render(scene, camera)
       }
     },
@@ -428,8 +444,11 @@ export default {
       //     // .attr("viewBox", "0 0 " + width + " " + height);
       var n = 200
       // var random = d3.randomNormal(0, 0.2)
-      var data = d3.range(n)
+      var data1 = d3.range(n)
       var data2 = d3.range(n)
+      // var data3 = d3.range(n)
+      // var data4 = d3.range(n)
+      // var data5 = d3.range(n)
       var svg = d3.select('svg')
       var margin = {top: 20, right: 50, bottom: 20, left: 50}
       var div = document.getElementById('wrapper')
@@ -468,15 +487,15 @@ export default {
       var legendHeight = 50
 
             // clipping to make sure nothing appears behind legend
-      svg.append('clipPath')
-        .attr('id', 'axes-clip')
-        .append('polygon')
-          .attr('points', (-margin.left) + ',' + (-margin.top) + ' ' +
-                          (width - legendWidth - 1) + ',' + (-margin.top) + ' ' +
-                          (width - legendWidth - 1) + ',' + height + ' ' +
-                          (width + margin.right) + ',' + height + ' ' +
-                          (width + margin.right) + ',' + (height + margin.bottom) + ' ' +
-                          (-margin.left) + ',' + (height + margin.bottom))
+      // svg.append('clipPath')
+      //   .attr('id', 'axes-clip')
+      //   .append('polygon')
+      //     .attr('points', (-margin.left) + ',' + (-margin.top) + ' ' +
+      //                     (width - legendWidth - 1) + ',' + (-margin.top) + ' ' +
+      //                     (width - legendWidth - 1) + ',' + height + ' ' +
+      //                     (width + margin.right) + ',' + height + ' ' +
+      //                     (width + margin.right) + ',' + (height + margin.bottom) + ' ' +
+      //                     (-margin.left) + ',' + (height + margin.bottom))
       var legend = svg.append('g')
         .attr('class', 'legend')
         .attr('transform', 'translate(' + (divwidth - legendWidth - 5) + ', 5)')
@@ -503,40 +522,30 @@ export default {
       g.append('g')
           .attr('clip-path', 'url(#clip)')
         .append('path')
-          .datum(data)
-          .attr('class', 'line')
+          .datum(data2)
+          .attr('class', 'line2')
         .transition()
-          .duration(20)
+          .duration(50)
           .ease(d3.easeLinear)
           .on('start', tick)
       g.append('g')
           .attr('clip-path', 'url(#clip)')
         .append('path')
-          .datum(data2)
-          .attr('class', 'line2')
+          .datum(data1)
+          .attr('class', 'line')
         .transition()
-          .duration(20)
+          .duration(50)
           .ease(d3.easeLinear)
-          .on('start', tick2)
+          .on('start', tick)
+
       function tick () {
         // Push a new data point onto the back.
-        data.push(that.robotic_angle)
+        data2.push(that.command_angle1)
+        data1.push(that.robotic_angle)
         // Redraw the line.
         d3.select(this)
             .attr('d', line)
             .attr('transform', null)
-        // Slide it to the left.
-        d3.active(this)
-            .attr('transform', 'translate(' + x(-1) + ',0)')
-          .transition()
-            .on('start', tick)
-        // Pop the old data point off the front.
-        data.shift()
-      }
-      function tick2 () {
-        // Push a new data point onto the back.
-        data2.push(that.command_angle)
-        // Redraw the line.
         d3.select(this)
             .attr('d', line2)
             .attr('transform', null)
@@ -544,10 +553,15 @@ export default {
         d3.active(this)
             .attr('transform', 'translate(' + x(-1) + ',0)')
           .transition()
-            .on('start', tick2)
+            .on('start', tick)
         // Pop the old data point off the front.
+        data1.shift()
         data2.shift()
       }
+      // function tick2 () {
+      //   // Push a new data point onto the back.
+      //
+      // }
     }
   }
 }
